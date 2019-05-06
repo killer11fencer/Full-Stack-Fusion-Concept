@@ -21,3 +21,6 @@ massive(CONNECTION_STRING).then(db=>{
     app.set('db',db)
     console.log('database set')
     app.listen(SERVER_PORT,()=>console.log('listening on port',SERVER_PORT))}).catch(err=>console.log('err connection',err))
+
+app.get('/api/menu',ctrl.getAllDishes)
+app.get('/api/menu/:id',ctrl.getOneDish)
