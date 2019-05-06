@@ -1,3 +1,2 @@
-select * from dishes {
-    where id = ${id}
-}
+select * from dishes 
+where id = ${id}
