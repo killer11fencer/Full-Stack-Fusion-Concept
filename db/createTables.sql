@@ -39,6 +39,22 @@ create table order_items (
 );
 
 
+--Inserted Data
+insert into category (name)
+values ('Appetizers'),
+('Entrees'),
+('Soups'),
+('Stews'),
+('Desserts'),
+('Drinks');
+
+insert into dishes (name,description,img,category_id,price)
+values('Kimbop',
+'sushi roll with beef bulgogi',
+'https://www.thespruceeats.com/thmb/IyxiJdbwFaixy4iolNYTLjBmW_w=/4288x2848/filters:fill(auto,1)/kimbap-korean-sushi-rolls-2118795-Hero-5b7dbdd346e0fb00250718b8.jpg',
+1,
+6)
+
 
 
 
