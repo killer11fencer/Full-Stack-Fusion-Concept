@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 
+
 class Menu extends Component {
     constructor() {
         super();
@@ -15,16 +16,18 @@ class Menu extends Component {
     }
     
     render(){
-        let displayDishes = this.state.dishes.map((elem,id)=>{
-            return <Link to={`/menu/food`}><div key={id}><h4>{elem.name}</h4>
+        let dishes = this.state.dishes.map((elem,id)=>{
+            
+            return <Link key={id} to={`/menu/${elem.id}`}>
+            <h4>{elem.name}</h4>
             <img src={elem.img} alt='Kimbop'/>
             <div>{elem.price}</div>
-            </div></Link>
+            </Link>
         })
         return(
 <div>
     Menu
-    {displayDishes}
+    {dishes}
 </div>
         )
     }

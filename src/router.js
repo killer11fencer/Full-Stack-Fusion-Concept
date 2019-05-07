@@ -15,7 +15,7 @@ export default (
         <Route path='/register' component={Register}/>
         <Route path='/orders' component={Orders}/>
         <Route path='/cart' component={Cart}/>
-        <Route path='/menu' component={Menu}/>
-        <Route path='/menu/food' component={MenuItems}/>
+        <Route exact path='/menu' component={Menu}/>
+        <Route path='/menu/:id' component={MenuItems}/>
     </Switch>
 )
