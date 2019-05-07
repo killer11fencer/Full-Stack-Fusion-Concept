@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import {connect} from 'react-redux'
-
+import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 import {updateUsername, updateUserId} from '../redux/reducer'
 
@@ -38,6 +38,7 @@ class Login extends Component {
             <div>Password</div>
             <input name='loginPassword' placeholder='Password' value={this.state.loginPassword} onChange={this.handleChange}/>
            <button onClick={this.handleSubmit}>Login</button>
+            <Link to='/'><button>Cancel</button></Link>
             {this.state.loginError && <h3>{this.state.loginErrorMessage}</h3>}
             </div>
         )

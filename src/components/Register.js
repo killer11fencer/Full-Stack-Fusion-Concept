@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux'
-import {withRouter} from 'react-router-dom'
+import {withRouter,Link} from 'react-router-dom'
 import {updateUsername,updateUserId} from '../redux/reducer'
 
 class Register extends Component {
@@ -31,7 +31,10 @@ handleSubmit = async (e) => {
         this.props.history.push('/menu')
     } catch(err) {
         this.setState({username:'',password: '', first_name: '',last_name:'',phone:'',email:'',})
-    }
+    }  
+}
+cancelAction = (e) => {
+    this.setState({username:'',password: '', first_name: '',last_name:'',phone:'',email:'',})
 }
 render() {
     return(
@@ -44,6 +47,7 @@ render() {
         <input name='phone' placeholder='Phone' value={this.state.phone} onChange={this.handleChange}/>
         <input name='password' placeholder='password' value={this.state.password} onChange={this.handleChange}/>
         <button onClick={this.handleSubmit}>Submit</button>
+        <Link to='/'><button>Cancel</button></Link>
         </div>
     )
 }
