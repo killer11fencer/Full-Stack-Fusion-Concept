@@ -43,10 +43,12 @@ login: async (req,res) => {
     const {session} = req
     try {
     let user = await db.login({username})
+    
     session.user = user[0]
     const authenticated = bcrypt.compareSync(req.body.loginPassword,user[0].password)
+   
     if(authenticated){
-        res.status(200).send({authenticated,user_id:user[0].id})
+        res.status(200).send({authenticated,id: user[0].id})
     } else { throw new Error(401,'Error')} 
 }catch(err) {res.sendStatus(401)}
 },
