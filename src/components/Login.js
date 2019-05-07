@@ -43,8 +43,8 @@ class Login extends Component {
         )
     }
 }
-const mapDispatchToProps = (
+const mapDispatchToProps = {
     updateUserId,
     updateUsername
-)
+}
 export default connect(null,mapDispatchToProps)(withRouter(Login))

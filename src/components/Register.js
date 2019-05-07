@@ -13,9 +13,9 @@ class Register extends Component {
             first_name: '',
             last_name: '',
             phone: null,
-            email: '',
-            registerError: false,
-            registerErrorMessage: 'Trouble Registering Please Try Again'
+            email: ''
+            
+            
         }
     }
 handleChange = (e) => {
@@ -30,7 +30,7 @@ handleSubmit = async (e) => {
         this.props.updateUserId(res.data.user_id)
         this.props.history.push('/menu')
     } catch(err) {
-        this.setState({username:'',password: '', first_name: '',last_name:'',phone:'',email:'',registerError: true})
+        this.setState({username:'',password: '', first_name: '',last_name:'',phone:'',email:'',})
     }
 }
 render() {
@@ -49,8 +49,8 @@ render() {
 }
 }
 
-const mapDispatchToProps = (
+const mapDispatchToProps = {
     updateUserId,
     updateUsername
-)
+}
 export default connect(null,mapDispatchToProps)(withRouter(Register))

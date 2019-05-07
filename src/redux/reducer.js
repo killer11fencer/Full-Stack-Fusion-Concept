@@ -23,7 +23,7 @@ export function updateUsername(username) {
 }
 
 export default function reducer(state = initialState,action) {
-    const {type,payload} = action
+    const {type, payload} = action
     switch(type) {
         case UPDATE_USERNAME:
         return {...state, username:payload}
