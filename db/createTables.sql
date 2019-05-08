@@ -7,6 +7,14 @@ create table users (
 
 );
 
+create table posts (
+title varchar,
+img varchar,
+description varchar,
+path varchar,
+button varchar
+);
+
 create table user_login (
     id serial primary key,
     username varchar(50),
@@ -55,6 +63,18 @@ values('Kimbop',
 1,
 6)
 
-
+insert into posts (
+title,
+img,
+description, 
+path, 
+button 
+)
+values (
+'Try our Kimbop',
+'https://www.koreanbapsang.com/wp-content/uploads/2012/05/DSC_0406-1-e1536289445158.jpg',
+'Kimbop is a favorite snack',
+'/menu/2',
+'Order now')
 
 

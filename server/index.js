@@ -23,6 +23,7 @@ massive(CONNECTION_STRING).then(db=>{
     console.log(db.listTables())
     app.listen(SERVER_PORT,()=>console.log('listening on port',SERVER_PORT))}).catch(err=>console.log('err connection',err))
 
+app.get('/api/posts',ctrl.getAllPosts)
 app.get('/api/menu',ctrl.getAllDishes)
 app.get('/api/menu/:id',ctrl.getOneDish)
 app.post('/auth/register',ctrl.register)

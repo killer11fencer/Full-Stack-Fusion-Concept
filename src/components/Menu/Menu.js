@@ -20,7 +20,7 @@ class Menu extends Component {
             
             return <Link key={id} to={`/menu/${elem.id}`}>
             <h4>{elem.name}</h4>
-            <img width='200' src={elem.img} alt='Kimbop'/>
+            <img width='100' src={elem.img} alt='Kimbop'/>
             <div>{elem.price}</div>
             </Link>
         })
