@@ -33,16 +33,28 @@ class Menu extends Component {
                     <h5>{elem.price}</h5>
                 </Link>
             }
-        })
+        }
+        )
+        let Entree = this.state.dishes.map((elem, id) => {
+            if (elem.name === "Entree") {
+                return <Link key={id} to={`/menu/${elem.dish_id}`}>
+                    <h4>{elem.dish_name}</h4>
+                    <img width='100' src={elem.img} alt='Kimbop' />
+                    <h5>{elem.price}</h5>
+                </Link>
+            }
+        }
+        )
         return (
             <div>
                 Menu
     <Slider {...settings}>
-                    <div>Appetizers: {appetizers} </div>
+                    <div>Appetizers:{appetizers}</div>
+                    <div>Entree: {Entree}</div>
                 </Slider>
 
             </div>
         )
     }
 }
-export default Menu
+    export default Menu

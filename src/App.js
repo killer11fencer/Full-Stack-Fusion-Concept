@@ -4,7 +4,7 @@ import router from './router'
 import store from './redux/store'
 import {Provider} from 'react-redux'
 import Navbar from './components/Navbar'
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
