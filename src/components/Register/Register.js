@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux'
 import {withRouter,Link} from 'react-router-dom'
-import {updateUsername,updateUserId} from '../redux/reducer'
+import {updateUsername,updateUserId} from '../../redux/reducer'
 
 class Register extends Component {
     constructor() {

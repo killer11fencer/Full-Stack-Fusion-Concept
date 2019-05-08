@@ -1,0 +1,25 @@
+.navbar {
+    
+    font-family: 'Montserrat', sans-serif;
+  
+    height: 50px;
+    ;
+    
+    
+
+}
+.nav {
+    position: absolute; 
+  
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 34.375em;
+ }
+.navButton { 
+    
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+}

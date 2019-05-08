@@ -9,6 +9,7 @@ class Menu extends Component {
         super();
         this.state = {
             dishes: [],
+            
         }
     }
     componentDidMount() {

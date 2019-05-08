@@ -1,16 +1,12 @@
 module.exports = {
-    add: async (res,req) => {
-      
-        const {id} = req.params
-        let {user} = req.session
-         
-        const index = user.cart.findIndex(dish=>dish.dish_id == id) 
+    add: async (req,res) => {
+        let {cart} = req.session
+        let {dish_id,dish_name,img,description,price,quantity} = req.body        
+        const index = cart.cart.findIndex(dish=>dish.id == dish_id) 
         if(index === -1) {
-            const selectedDish = dish.find(dish=> dish.dish_id == id);
-
-            user.cart.push(selectedDish);
-            user.total +- selectedDish.price
-        }
-        res.status(200).send(user)
+            cart.cart.push({dish_name,img,description,price,dish_id,quantity});
+            cart.total +- price 
+        } else { return cart[index].quantity++}
+        console.log('caaart',cart.cart)
     }
 }

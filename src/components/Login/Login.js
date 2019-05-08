@@ -3,7 +3,7 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
-import {updateUsername, updateUserId} from '../redux/reducer'
+import {updateUsername, updateUserId} from '../../redux/reducer'
 
 class Login extends Component {
     constructor() {
