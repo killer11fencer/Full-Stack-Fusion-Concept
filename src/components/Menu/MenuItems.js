@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 
 class MenuItem extends Component {
     constructor() {
@@ -24,6 +25,7 @@ class MenuItem extends Component {
          <h4>{`Price: $${elem.price}`}</h4>
          <button>Add To Cart</button>
          <h4>{elem.description}</h4>
+         <Link to='/menu'>Back</Link>
          </div> 
      })
         return(
