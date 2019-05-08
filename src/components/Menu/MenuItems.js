@@ -5,21 +5,30 @@ class MenuItem extends Component {
     constructor() {
         super();
         this.state = {
-            dish:{},
+            dish:[]
         }
     }
     componentDidMount() {
-        axios.get(`/api/menu/${this.props.match.params.id}`).then(res=> this.setState({dish:res.data}))
+         this.showDish();
+    }
+
+    showDish = async () => {
+        await axios.get(`/api/menu/${this.props.match.params.id}`).then(res=> this.setState({dish:res.data}))
         .catch(err=>console.log('err on get one',err))
     }
     render() {
-      let {dish} = this.state
+     let dish = this.state.dish.map((elem,id)=> {
+         return <div key={id}>
+         <h3>{elem.name}</h3>
+         <img width='200'src={elem.img} alt='kimbop'/>
+         <h4>{`Price: $${elem.price}`}</h4>
+         <button>Add To Cart</button>
+         <h4>{elem.description}</h4>
+         </div> 
+     })
         return(
             <div>
-               <h3>{dish.name}</h3>
-               <img width='200'src={dish.img}/>
-               <h4>{`Price: $${dish.price}`}</h4>
-               <button>Add To Cart</button>
+               {dish}
             </div>
         )
     }
