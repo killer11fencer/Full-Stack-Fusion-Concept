@@ -27,7 +27,7 @@ class Home extends Component {
         const posts = this.state.posts.map((post,id)=>{
             return <div key={id}>
             <h4>{post.title}</h4>
-            <img width='300' src={post.img} alt={post.title}/>
+            <img height='400' src={post.img} alt={post.title}/>
             <h5>{post.description}</h5>
             <Link to={post.path}>{post.button}</Link>
             </div>
