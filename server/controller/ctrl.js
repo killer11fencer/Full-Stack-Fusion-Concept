@@ -1,17 +1,17 @@
 const bcrypt = require('bcryptjs')
 module.exports = {
-    getAllPosts: (req,res) => {
+    getAllPosts: async (req,res) => {
         const db = req.app.get('db')
         db.getAllPosts().then(result=>res.status(200).send(result))
         .catch(err=>console.log('err on posts',err))
     },
-    getAllDishes: (req,res) => {
+    getAllDishes: async (req,res) => {
         const db = req.app.get('db')
         db.getAllDishes().then(result=>res.status(200).send(result))
         .catch(err=>console.log('err on get dishes',err))
 
     },
-    getOneDish: (req,res) => {
+    getOneDish: async (req,res) => {
         const db = req.app.get('db')
         const {id} = req.params
         db.getOneDish({id}).then(result=>res.status(200).send(result))

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-
+import Slider from 'react-slick'
 import {Link} from 'react-router-dom'
 import axios from 'axios';
 
@@ -7,7 +7,7 @@ class Home extends Component {
     constructor() {
         super();
         this.state = {
-            posts: []
+            posts: [{}]
         }
     }
     componentDidMount() {
@@ -15,18 +15,34 @@ class Home extends Component {
         .catch(err=> console.log('err on posts',err))
     }
     render() {
+        const settings = {
+            dots: true,
+            infinite:true,
+            speed:500,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        }
         console.log('should be posts',this.state)
-        let posts = this.state.posts.map((post,id)=>{
+     
+        const posts = this.state.posts.map((post,id)=>{
             return <div key={id}>
-            <div>{post.title}</div>
-            <img src={post.img} alt='kimbop'/>
-            <div>{post.description}</div>
-            <Link to={post.path}><button>{post.button}</button></Link>
+            <h4>{post.title}</h4>
+            <img width='300' src={post.img} alt={post.title}/>
+            <h5>{post.description}</h5>
+            <Link to={post.path}>{post.button}</Link>
             </div>
         })
         return(
             <div>
+                <div className='slider'>
+                <Slider {...settings}>
                 {posts}
+                </Slider>
+                <footer><h5>Fusion Asian</h5>
+                <h6>Address: 1469 Center st, Provo,UT 84660</h6>
+                <h6>Phone: 805 611 91121</h6>
+                </footer>
+                </div>
             </div>
         )
     }

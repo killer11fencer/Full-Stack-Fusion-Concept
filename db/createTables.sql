@@ -78,3 +78,28 @@ values (
 'Order now')
 
 
+insert into posts (
+title,
+img,
+description, 
+path, 
+button 
+)
+values(
+'Try our Kimbop',
+'https://www.koreanbapsang.com/wp-content/uploads/2012/05/DSC_0406-1-e1536289445158.jpg',
+'Kimbop is a favorite snack',
+'/menu/2',
+'Order now'),
+
+('Stew for the Ages',
+'https://www.koreanbapsang.com/wp-content/uploads/2011/10/DSC_1295-2-e1537245593549.jpg',
+'Warm up on a cold day',
+'/menu',
+'Order now'),
+
+('Real Korean BBQ',
+'https://static1.squarespace.com/static/5accff4ab40b9d564561908e/5acd00700e2e72f4e513c3d9/5c369588575d1fcf753e067c/1547439978172/korean+bowl3.jpg?format=1000w',
+'Try tradition style BBQ',
+'/menu',
+'Order now');
