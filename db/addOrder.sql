@@ -5,3 +5,10 @@ values (
     ${created_at},
     ${notes}
 );
+
+insert into order_items (dish_id,quantity,user_id)
+values (
+    ${dish_id},
+    ${quantit},
+    ${user_i})
+);

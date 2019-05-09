@@ -4,6 +4,7 @@ const express = require('express')
 const session = require('express-session')
 const ctrl = require('./controller/ctrl')
 const cartCtrl = require('./controller/cartCtrl')
+const orderCtrl = require('./controller/orderCtrl')
 const app = express()
 const {CONNECTION_STRING,SERVER_PORT,SESSION_SECRET} = process.env
 
@@ -50,5 +51,6 @@ app.get('/api/cart',cartCtrl.getCart)
 app.post('/api/cart',cartCtrl.add)
 app.delete('/api/cart/:dish_id/:price/:quantity',cartCtrl.remove)
 app.put('/api/cart/:id',cartCtrl.update)
+app.post('/api/orders',cartCtrl.createOrder)
 // Orders
-app.get('/api/order',)
+app.get('/api/orders',orderCtrl.getOrders)

@@ -14,5 +14,11 @@ class Orders extends Component {
     getAllOrders = () => {
         axios.get('/api/orders').then(res=>this.setState({orders: res.data}))
     }
+    render() {
+        console.log(this.state.orders)
+        return(
+            <div>{this.state.orders}</div>
+        )
+    }
 }
 export default Orders

@@ -32,10 +32,11 @@ class Cart extends Component {
         axios.delete(`/api/cart/${item.dish_id}/${item.price}/${item.quantity}`).then(this.getCart())
     }
     createOrder = (order) => {
-        axios.post('/api/orders',order).then(this.getCart)
+        axios.post('/api/orders',order).then(this.getCart())
     }
 
     render() {
+        console.log(this.state.cart)
        
         let displayCart = this.state.cart.map((item, index) => {
             return <div key={index}><h5>{item.dish_name}</h5>
