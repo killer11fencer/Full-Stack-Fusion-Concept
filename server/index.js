@@ -9,6 +9,7 @@ const {CONNECTION_STRING,SERVER_PORT,SESSION_SECRET} = process.env
 
 
 
+
 app.use(express.json())
 app.use(session({
     secret: SESSION_SECRET,
@@ -26,6 +27,10 @@ app.use((req,res,next) => {
     next();
 }
 )
+app.use((req,res,next)=> {
+    console.log(req.session)
+    next()
+})
 
 massive(CONNECTION_STRING).then(db=>{
     app.set('db',db)
