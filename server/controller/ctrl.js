@@ -37,7 +37,8 @@ module.exports = {
         })
         session.user = {
             username,
-            first_name
+            first_name,
+            
             
         }
         res.sendStatus(200)

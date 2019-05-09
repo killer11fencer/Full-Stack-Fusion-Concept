@@ -27,10 +27,7 @@ app.use((req,res,next) => {
     next();
 }
 )
-app.use((req,res,next)=> {
-    console.log(req.session)
-    next()
-})
+
 
 massive(CONNECTION_STRING).then(db=>{
     app.set('db',db)
@@ -39,13 +36,19 @@ massive(CONNECTION_STRING).then(db=>{
  
     app.listen(SERVER_PORT,()=>console.log('listening on port',SERVER_PORT))}).catch(err=>console.log('err connection',err))
 
+// Home Page
 app.get('/api/posts',ctrl.getAllPosts)
+// Menu Sytem
 app.get('/api/menu',ctrl.getAllDishes)
 app.get('/api/menu/:id',ctrl.getOneDish)
+// Register and Log on Users
 app.post('/auth/register',ctrl.register)
 app.post('/auth/login', ctrl.login)
 app.get('/auth/logout',ctrl.logOut)
+//Cart on Sessions
 app.get('/api/cart',cartCtrl.getCart)
 app.post('/api/cart',cartCtrl.add)
 app.delete('/api/cart/:dish_id/:price/:quantity',cartCtrl.remove)
 app.put('/api/cart/:id',cartCtrl.update)
+// Orders
+app.get('/api/order',)

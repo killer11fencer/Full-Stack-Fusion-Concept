@@ -38,6 +38,11 @@ module.exports = {
        console.log(cart.total) 
        res.sendStatus(200)
         
+    },
+    createOrder: async (req,res) => {
+        let {cart,user} = req.session
+        
+
     }
 
             

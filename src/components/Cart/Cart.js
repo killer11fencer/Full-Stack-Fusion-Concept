@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 class Cart extends Component {
     constructor() {
@@ -30,6 +31,9 @@ class Cart extends Component {
     deleteCart = (item) => {
         axios.delete(`/api/cart/${item.dish_id}/${item.price}/${item.quantity}`).then(this.getCart())
     }
+    createOrder = (order) => {
+        axios.post('/api/orders',order).then(this.getCart)
+    }
 
     render() {
        
@@ -47,8 +51,8 @@ class Cart extends Component {
         return (
             <div>{displayCart}
                 <div>Total: ${this.state.total}</div>
-                <button>Submit</button>
-                <button>Cancel</button>
+                <button onClick={(e)=>this.createOrder(this.state.cart)}>Submit</button>
+                <Link to='/menu'><button>Cancel</button></Link>
             </div>
         )
     }
