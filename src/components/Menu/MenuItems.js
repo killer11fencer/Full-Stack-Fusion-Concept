@@ -21,7 +21,7 @@ class MenuItem extends Component {
     addToCart = (item) => {
         let quantity = 1
         let itemInCart = {...item,quantity}
-        axios.post(`/api/cart/${itemInCart.dish_id}`,itemInCart).then(this.props.history.push('/cart'))
+        axios.post('/api/cart',itemInCart).then(this.props.history.push('/cart'))
     }
     render() {
      let dish = this.state.dish.map((elem,id)=> {

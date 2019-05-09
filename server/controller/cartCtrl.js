@@ -20,9 +20,10 @@ module.exports = {
         res.status(200)
     },
     remove: async (req,res) => {
-        let{cart} = req.session
-        let {dish_id,price,quantity} = req.body
-        const index = await cart.cart.findIndex(dish=>dish.dish_id === dish_id)
+        let {dish_id,price,quantity} = req.params
+        let{cart} = req.session``
+        const index = await cart.cart.findIndex(dish=>+dish.dish_id=== +dish_id)
+        console.log(index)
         cart.cart.splice(index,1)
         cart.total -= (price * quantity)
         req.session.save()
