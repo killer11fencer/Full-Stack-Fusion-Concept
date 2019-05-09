@@ -1,14 +1,13 @@
-insert into orders (users_id,status,created_at,notes)
+insert into orders (users_id,status)
 values (
-    ${users_id},
-    ${status},
-    ${created_at},
-    ${notes}
+    $1,
+    $2
+    
 );
 
 insert into order_items (dish_id,quantity,user_id)
 values (
-    ${dish_id},
-    ${quantit},
-    ${user_i})
+    $3,
+    $4,
+    $5
 );
