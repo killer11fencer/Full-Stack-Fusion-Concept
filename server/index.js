@@ -31,6 +31,7 @@ massive(CONNECTION_STRING).then(db=>{
     app.set('db',db)
     console.log('database set')
     console.log(db.listTables())
+ 
     app.listen(SERVER_PORT,()=>console.log('listening on port',SERVER_PORT))}).catch(err=>console.log('err connection',err))
 
 app.get('/api/posts',ctrl.getAllPosts)
