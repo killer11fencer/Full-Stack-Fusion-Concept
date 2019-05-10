@@ -1,6 +1,6 @@
 module.exports = {
     getOrders: (req,res) => {
-        const db = app.get('db')
+        const db = req.app.get('db')
         let {user} = req.session
         let id = user.id
         

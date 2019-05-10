@@ -17,7 +17,7 @@ class Orders extends Component {
     render() {
         console.log(this.state.orders)
         return(
-            <div>{this.state.orders}</div>
+            <div></div>
         )
     }
 }

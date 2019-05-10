@@ -23,7 +23,7 @@ module.exports = {
         const {session} = req
         let emailTaken = await db.checkEmail({email})
         emailTaken = +emailTaken[0].count
-      console.log()
+     
         if(emailTaken !== 0) { return res.sendStatus(409)}
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password,salt)
@@ -41,6 +41,7 @@ module.exports = {
             
             
         }
+       
         res.sendStatus(200)
     },
 login: async (req,res) => {

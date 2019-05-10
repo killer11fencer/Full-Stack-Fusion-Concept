@@ -33,6 +33,7 @@ class Cart extends Component {
     }
     createOrder = (order) => {
         axios.post('/api/orders',order).then(this.getCart())
+        this.props.history.push('/orders')
     }
 
     render() {
@@ -40,7 +41,7 @@ class Cart extends Component {
        
         let displayCart = this.state.cart.map((item, index) => {
             return <div key={index}><h5>{item.dish_name}</h5>
-                <img width='50px' src={item.img} />
+                <img width='50px' alt='food'src={item.img} />
                 <div>Quantity: <input onChange={this.handleChange} name='userInput' placeholder={item.quantity}
                      /></div>
                 <button onClick={(e)=>this.updateCart(index,this.state.userInput)}>Update</button>
