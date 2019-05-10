@@ -43,12 +43,17 @@ module.exports = {
         const db = req.app.get('db')
         let {cart,user} = req.session
         let user_id = user.id
-        let status = 'New Order'
         let users_id = user.id
+
         
+        let status = 'New Order'
+        
+        const data = await db.addOrder([users_id,status])
+        let order_id = data[0]
+
         let orderedItems = cart.cart.map((elem)=>{
             let {dish_id,quantity} = elem
-            return db.addOrder([users_id,status,dish_id,quantity,user_id])
+            return db.addOrder([users_id,status,dish_id,quantity,user_id,order_id])
         })
         cart.cart = [],
         cart.total = 0

@@ -3,4 +3,10 @@ values (
     $1,
     $2
     
-) returning id;
+);
+
+select id from orders
+sort by id desc
+limit 1;
+
+
