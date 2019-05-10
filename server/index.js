@@ -5,9 +5,10 @@ const session = require('express-session')
 const ctrl = require('./controller/ctrl')
 const cartCtrl = require('./controller/cartCtrl')
 const orderCtrl = require('./controller/orderCtrl')
-const app = express()
-const {CONNECTION_STRING,SERVER_PORT,SESSION_SECRET} = process.env
 
+const {CONNECTION_STRING,SERVER_PORT,SESSION_SECRET,STRIPE_API} = process.env
+const stripe = require('stripe')(STRIPE_API);
+const app = express()
 
 
 
@@ -55,3 +56,20 @@ app.post('/api/orders',cartCtrl.createOrder)
 // Orders
 app.get('/api/orders',orderCtrl.getOrders)
 app.get('/api/orders/:id',orderCtrl.orderDetails)
+//Stripe
+app.post('/charge', async (req,res)=>{
+    const {total,token} = req.body 
+   
+    try {
+        let {status} = await stripe.charges.create({
+            amount:total,
+            currency: 'usd',
+            description: 'Fusion-Asian',
+            source: token
+        });
+    
+        res.sendStatus(200)
+    } catch (err) {
+        res.status(500).end();
+    }
+});

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import {Elements,StripeProvider} from 'react-stripe-elements'
+import CheckOutForm from '../CheckOutForm/CheckOutForm'
+import Popup from 'reactjs-popup'
 
 class Cart extends Component {
     constructor() {
@@ -37,6 +40,7 @@ class Cart extends Component {
     }
 
     render() {
+        let apikey = 'pk_test_QWjXZ8OXgnOfLqfw5I7I6WxS00yduxeF4w'
         console.log(this.state.cart)
        
         let displayCart = this.state.cart.map((item, index) => {
@@ -51,11 +55,18 @@ class Cart extends Component {
         })
 
         return (
+            <StripeProvider apiKey={apikey}>
             <div>{displayCart}
                 <div>Total: ${this.state.total}</div>
-                <button onClick={(e)=>this.createOrder(this.state.cart)}>Submit</button>
+                <Popup className='modal' trigger={<button>Submit</button>} position='right'>
+                <Elements>
+                <CheckOutForm cart={this.state.cart} createOrder={this.createOrder} total={this.state.total}/>
+                </Elements>
+                </Popup>
                 <Link to='/menu'><button>Cancel</button></Link>
+                
             </div>
+            </StripeProvider>
         )
     }
 }

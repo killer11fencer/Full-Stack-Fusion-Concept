@@ -10,6 +10,7 @@ function App() {
   return (
     <HashRouter>
       <Provider store={store}>
+      
     <Navbar/>
   
     {router}
