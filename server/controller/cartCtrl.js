@@ -45,7 +45,7 @@ module.exports = {
         let user_id = user.id
         let users_id = user.id
 
-        
+
         let status = 'New Order'
         
         const data = await db.addOrder([users_id,status])
@@ -53,7 +53,7 @@ module.exports = {
 
         let orderedItems = cart.cart.map((elem)=>{
             let {dish_id,quantity} = elem
-            return db.addOrder([users_id,status,dish_id,quantity,user_id,order_id])
+            return db.addOrderItems([users_id,status,dish_id,quantity,user_id,order_id])
         })
         cart.cart = [],
         cart.total = 0
