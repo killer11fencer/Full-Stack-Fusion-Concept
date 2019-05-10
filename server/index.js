@@ -54,3 +54,4 @@ app.put('/api/cart/:id',cartCtrl.update)
 app.post('/api/orders',cartCtrl.createOrder)
 // Orders
 app.get('/api/orders',orderCtrl.getOrders)
+app.get('/api/orders/:id',orderCtrl.orderDetails)

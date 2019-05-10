@@ -5,5 +5,11 @@ module.exports = {
         let id = user.id
         
         db.getAllOrders({id}).then(result=>res.status(200).send(result))
-    }
+    },
+    orderDetails : async (req,res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+        db.orderDetails(id).then(result=>res.status(200).send(result))
+        .catch(err=>console.log('err on one order',err))
+    },
 }
