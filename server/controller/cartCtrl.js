@@ -42,18 +42,18 @@ module.exports = {
     createOrder: async (req,res) => {
         const db = req.app.get('db')
         let {cart,user} = req.session
-        let user_id = user.id
+      
         let users_id = user.id
 
 
         let status = 'New Order'
         
         const data = await db.addOrder([users_id,status])
-        let order_id = data[0]
-
+        let order_id = data[0].id
+        console.log(order_id)
         let orderedItems = cart.cart.map((elem)=>{
             let {dish_id,quantity} = elem
-            return db.addOrderItems([users_id,status,dish_id,quantity,user_id,order_id])
+            return db.addOrderItems([dish_id,quantity,users_id,order_id])
         })
         cart.cart = [],
         cart.total = 0
