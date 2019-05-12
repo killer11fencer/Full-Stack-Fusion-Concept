@@ -5,6 +5,7 @@ const session = require('express-session')
 const ctrl = require('./controller/ctrl')
 const cartCtrl = require('./controller/cartCtrl')
 const orderCtrl = require('./controller/orderCtrl')
+const dishCtrl = require('./controller/dishCtrl')
 
 const {CONNECTION_STRING,SERVER_PORT,SESSION_SECRET,STRIPE_API} = process.env
 const stripe = require('stripe')(STRIPE_API);
@@ -57,6 +58,7 @@ app.post('/api/orders',cartCtrl.createOrder)
 // Orders
 app.get('/api/orders',orderCtrl.getOrders)
 app.get('/api/orders/:id',orderCtrl.orderDetails)
+
 //Stripe
 app.post('/charge', async (req,res)=>{
     const {total,token} = req.body 
@@ -74,3 +76,7 @@ app.post('/charge', async (req,res)=>{
         res.status(500).end();
     }
 });
+
+//admin functions
+//dishes
+app.delete('/api/menu/:id',dishCtrl.deleteDish)

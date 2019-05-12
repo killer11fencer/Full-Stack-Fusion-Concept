@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 import Slider from 'react-slick'
+import {connect} from 'react-redux'
 
 
 class Menu extends Component {
@@ -13,10 +14,17 @@ class Menu extends Component {
         }
     }
     componentDidMount() {
+        this.getAllDishes()
+    }
+    getAllDishes = () => {
         axios.get('/api/menu').then(res => this.setState({ dishes: res.data }))
             .catch(err => console.log('err on dishes', err))
     }
-
+    deleteDish = async (id) => {
+        axios.delete(`/api/menu/${id}`).then(res=>this.setState({dishes: res.data}))
+        .catch(err=>console.log('err deleting',err))
+        this.getAllDishes()
+    }
     render() {
         console.log(this.state)
         const settings = {
@@ -28,21 +36,21 @@ class Menu extends Component {
         }
         let appetizers = this.state.dishes.map((elem, id) => {
             if (elem.name === "Appetizers") {
-                return <Link key={id} to={`/menu/${elem.dish_id}`}>
+                return <div key={id}><Link  to={`/menu/${elem.dish_id}`}>
                     <h4>{elem.dish_name}</h4>
                     <img width='100' src={elem.img} alt='Kimbop' />
                     <h5>{elem.price}</h5>
-                </Link>
+                </Link>{this.props.admin && <button onClick={(e)=>this.deleteDish(elem.dish_id)}>Delete</button>}</div>
             }
         }
         )
         let Entree = this.state.dishes.map((elem, id) => {
             if (elem.name === "Entree") {
-                return <Link key={id} to={`/menu/${elem.dish_id}`}>
+                return <div key={id}><Link to={`/menu/${elem.dish_id}`}>
                     <h4>{elem.dish_name}</h4>
                     <img width='100' src={elem.img} alt='Kimbop' />
                     <h5>{elem.price}</h5>
-                </Link>
+                </Link>{this.props.admin && <button onClick={(e)=>this.deleteDish(elem.dish_id)}>Delete</button>}</div>
             }
         }
         )
@@ -58,4 +66,7 @@ class Menu extends Component {
         )
     }
 }
-    export default Menu
+function mapStateToProps (state) {
+    return {admin:state.admin}
+}
+    export default connect(mapStateToProps)(Menu)
