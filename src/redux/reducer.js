@@ -9,6 +9,7 @@ const initialState = {
 const UPDATE_USER_ID = 'UPDATE_USER_ID'
 const UPDATE_USERNAME = 'UPDATE_USERNAME'
 const UPDATE_ADMIN = 'UPDATE_ADMIN'
+const UPDATE_AUTHENTICATED = 'UPDATE_AUTHENTICATED'
 
 
 export function updateUserId(id) {
@@ -29,6 +30,12 @@ export function updateAdmin(admin) {
         payload: admin
     }
 }
+export function updateAuthenticated(authenticated) {
+    return {
+        type: UPDATE_AUTHENTICATED,
+        payload: authenticated
+    }
+}
 
 export default function reducer(state = initialState,action) {
     const {type, payload} = action
@@ -39,6 +46,8 @@ export default function reducer(state = initialState,action) {
         return {...state,user_id:payload}
         case UPDATE_ADMIN:
         return {...state,admin:payload}
+        case UPDATE_AUTHENTICATED:
+        return {...state,authenticated: payload}
         default:
         return state
         

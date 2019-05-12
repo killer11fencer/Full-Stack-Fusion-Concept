@@ -3,7 +3,7 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
-import {updateUsername, updateUserId,updateAdmin} from '../../redux/reducer'
+import {updateUsername, updateUserId,updateAdmin,updateAuthenticated} from '../../redux/reducer'
 
 class Login extends Component {
     constructor() {
@@ -13,7 +13,8 @@ class Login extends Component {
             loginPassword: '',
             loginError: false,
             loginErrorMessage: 'Username or Password is incorrect. Please try again',
-            admin: false
+            admin: false,
+            authenticated: false,
            
 
         }
@@ -28,9 +29,10 @@ class Login extends Component {
             this.props.updateUsername(loginUsername)
             this.props.updateUserId(res.data.user_id)
             this.props.updateAdmin(res.data.admin)
+            this.props.updateAuthenticated(res.data.authenticated)
             this.props.history.push('/menu')
         } catch(err) {
-            this.setState({loginUsername: '',loginPassword:'',loginError:true})
+            this.setState({loginUsername: '',loginPassword:'',loginError:true,authenticated:false})
         }
     }
     render() {
@@ -51,6 +53,7 @@ class Login extends Component {
 const mapDispatchToProps = {
     updateUserId,
     updateUsername,
-    updateAdmin
+    updateAdmin,
+    updateAuthenticated
 }
 export default connect(null,mapDispatchToProps)(withRouter(Login))

@@ -1,8 +1,13 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-
+import {connect} from 'react-redux'
+import axios from 'axios'
 
 class Navbar extends Component {
+
+    logOut = () => {
+        axios.get('/auth/logout')
+    }
     render() {
         return (
             <div className='navbar'>
@@ -13,7 +18,8 @@ class Navbar extends Component {
                 <Link to='/menu'><div className='navButtons'>Menu</div></Link>
                 <Link to='/cart'><div className='navButtons'>Cart</div></Link>
                 <Link to='/orders'><div className='navButtons'>Orders</div></Link>
-                <Link to='/login'><div className='navButtons'>Login</div></Link>
+                {!this.props.authenticated && <Link to='/login'><div className='navButtons'>Login</div></Link>}
+                {this.props.authenticated && <Link to='/'><div onClick={this.logOut}>Log Out</div></Link>}
                 <Link to='/register'><div className='navButtons'>register</div></Link>
                 
                 </div>
@@ -21,5 +27,7 @@ class Navbar extends Component {
         )
     }
 }
-
-export default Navbar
+function mapStateToProps (state) {
+    return {authenticated: state.authenticated}
+}
+export default connect(mapStateToProps)(Navbar)

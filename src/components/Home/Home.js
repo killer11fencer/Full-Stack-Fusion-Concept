@@ -68,7 +68,7 @@ class Home extends Component {
                 </footer>
                 </div>
                 {this.props.admin && <div>
-                    <h6>Update Posts</h6>
+                    <h3>Update Posts</h3>
                 <div>Title</div>
                 <input name='title'onChange={this.handleChange}/>
                 <div>Description</div>
