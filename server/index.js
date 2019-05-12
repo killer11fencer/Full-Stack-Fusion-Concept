@@ -40,6 +40,7 @@ massive(CONNECTION_STRING).then(db=>{
 
 // Home Page
 app.get('/api/posts',ctrl.getAllPosts)
+app.post('/api/posts',ctrl.addPosts)
 // Menu Sytem
 app.get('/api/menu',ctrl.getAllDishes)
 app.get('/api/menu/:id',ctrl.getOneDish)

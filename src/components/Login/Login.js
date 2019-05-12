@@ -22,7 +22,7 @@ class Login extends Component {
         this.setState({[e.target.name]:e.target.value})
     }
     handleSubmit = async (e) => {
-        const {loginUsername,loginPassword,admin} = this.state
+        const {loginUsername,loginPassword} = this.state
         try {
             const res = await axios.post('/auth/login',{loginUsername,loginPassword})
             this.props.updateUsername(loginUsername)
@@ -30,7 +30,7 @@ class Login extends Component {
             this.props.updateAdmin(res.data.admin)
             this.props.history.push('/menu')
         } catch(err) {
-            this.setState({loginUsername: '',loginPassword:'',loginError:true,admin:false})
+            this.setState({loginUsername: '',loginPassword:'',loginError:true})
         }
     }
     render() {

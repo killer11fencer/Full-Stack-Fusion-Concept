@@ -12,12 +12,12 @@ class Home extends Component {
             img: '',
             title: '',
             description: '',
-            path: ''
+            path: '',
+            button: ''
         }
     }
     componentDidMount() {
-        axios.get('/api/posts').then(res=>this.setState({posts: res.data}))
-        .catch(err=> console.log('err on posts',err))
+        this.getPosts()
     }
 
     handleChange = (e) => {
@@ -25,8 +25,16 @@ class Home extends Component {
             [e.target.name]: e.target.value
         })
     }
-    onSubmit = () => {
+    getPosts = () => {
+    axios.get('/api/posts').then(res=>this.setState({posts: res.data}))
+        .catch(err=> console.log('err on posts',err))
+}
 
+    onSubmit = async (e) => {
+        const {title,description,img,path,button} = this.state
+        axios.post('/api/posts',{title,description,img,path,button}).then(res=>this.setState({posts: res.data}))
+        .catch(err=>console.log('err on creating post',err))
+        this.getPosts()
     }
     render() {
         const settings = {
@@ -36,12 +44,12 @@ class Home extends Component {
             slidesToShow: 1,
             slidesToScroll: 1
         }
-        console.log('should be posts',this.state)
+        console.log('should be posts',this.state.posts)
         console.log('admin',this.props.admin)
         
      
         const posts = this.state.posts.map((post,id)=>{
-            return <div key={id}>
+            return <div key={id}> 
             <h4>{post.title}</h4>
             <img height='400' src={post.img} alt={post.title}/>
             <h5>{post.description}</h5>
@@ -60,8 +68,18 @@ class Home extends Component {
                 </footer>
                 </div>
                 {this.props.admin && <div>
+                    <h6>Update Posts</h6>
                 <div>Title</div>
                 <input name='title'onChange={this.handleChange}/>
+                <div>Description</div>
+                <input name='description' onChange={this.handleChange}/>
+                <div>Image</div>
+                <input name='img' onChange={this.handleChange}/>
+                <div>Link to</div>
+                <input name='path' onChange={this.handleChange}/>
+                <div>Button</div>
+                <input name='button' onChange={this.handleChange}/>
+                <button onClick={this.onSubmit}>Submit New Posts</button>
                 </div>
                 }
             </div>

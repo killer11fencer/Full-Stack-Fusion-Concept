@@ -5,6 +5,12 @@ module.exports = {
         db.getAllPosts().then(result=>res.status(200).send(result))
         .catch(err=>console.log('err on posts',err))
     },
+    addPosts: async (req,res) => {
+        const db = req.app.get('db')
+        const {title,description,img,path,button} = req.body
+        db.addPosts({title,description,img,path,button}).then(result=>res.status(200).send(result))
+        .catch(err=> console.log('err on adding posts',err))
+    },
     getAllDishes: async (req,res) => {
         const db = req.app.get('db')
         db.getAllDishes().then(result=>res.status(200).send(result))
