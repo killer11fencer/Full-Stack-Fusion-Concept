@@ -5,6 +5,7 @@ import {Elements,StripeProvider} from 'react-stripe-elements'
 import CheckOutForm from '../CheckOutForm/CheckOutForm'
 import Popup from 'reactjs-popup'
 
+
 class Cart extends Component {
     constructor() {
         super();
@@ -35,10 +36,12 @@ class Cart extends Component {
         axios.delete(`/api/cart/${item.dish_id}/${item.price}/${item.quantity}`).then(this.getCart())
     }
     createOrder = (order) => {
+       
         axios.post('/api/orders',order).then(this.getCart())
         this.props.history.push('/orders')
-    }
-
+        }
+      
+    
     render() {
         let apikey = 'pk_test_QWjXZ8OXgnOfLqfw5I7I6WxS00yduxeF4w'
         console.log(this.state.cart)
@@ -70,4 +73,5 @@ class Cart extends Component {
         )
     }
 }
+
 export default Cart

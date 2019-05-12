@@ -45,6 +45,7 @@ class Login extends Component {
             <input name='loginPassword' placeholder='Password' value={this.state.loginPassword} onChange={this.handleChange}/>
            <button onClick={this.handleSubmit}>Login</button>
             <Link to='/'><button>Cancel</button></Link>
+            <div>Not a member? <Link to='/register'>Register Here</Link></div>
             {this.state.loginError && <h3>{this.state.loginErrorMessage}</h3>}
             </div>
         )

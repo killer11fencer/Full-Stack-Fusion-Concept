@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 class MenuItem extends Component {
     constructor() {
@@ -18,10 +19,13 @@ class MenuItem extends Component {
         await axios.get(`/api/menu/${this.props.match.params.id}`).then(res=> this.setState({dish:res.data}))
         .catch(err=>console.log('err on get one',err))
     }
-    addToCart = (item) => {
+    addToCart = async (item) => {
         let quantity = 1
         let itemInCart = {...item,quantity}
+        if(this.props.authenticated) {
         axios.post('/api/cart',itemInCart).then(this.props.history.push('/cart'))
+        }
+        else {this.props.history.push('/login')}
     }
     render() {
      let dish = this.state.dish.map((elem,id)=> {
@@ -44,7 +48,11 @@ class MenuItem extends Component {
         )
     }
 }
-    
+
+function mapStateToProps (state) {
+    return {authenticated: state.authenticated}
+
+}
 
 
-export default MenuItem
+export default connect(mapStateToProps)(MenuItem)
