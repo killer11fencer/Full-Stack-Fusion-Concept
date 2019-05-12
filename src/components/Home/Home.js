@@ -1,18 +1,32 @@
 import React, {Component} from 'react'
 import Slider from 'react-slick'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 import axios from 'axios';
 
 class Home extends Component {
     constructor() {
         super();
         this.state = {
-            posts: [{}]
+            posts: [{}],
+            img: '',
+            title: '',
+            description: '',
+            path: ''
         }
     }
     componentDidMount() {
         axios.get('/api/posts').then(res=>this.setState({posts: res.data}))
         .catch(err=> console.log('err on posts',err))
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+    onSubmit = () => {
+
     }
     render() {
         const settings = {
@@ -23,6 +37,8 @@ class Home extends Component {
             slidesToScroll: 1
         }
         console.log('should be posts',this.state)
+        console.log('admin',this.props.admin)
+        
      
         const posts = this.state.posts.map((post,id)=>{
             return <div key={id}>
@@ -43,8 +59,18 @@ class Home extends Component {
                 <h6>Phone: 805 611 91121</h6>
                 </footer>
                 </div>
+                {this.props.admin && <div>
+                <div>Title</div>
+                <input name='title'onChange={this.handleChange}/>
+                </div>
+                }
             </div>
         )
     }
 }
-export default Home
+function mapStateToProps (state) {
+    return {
+        admin: state.admin
+    }
+}
+export default connect(mapStateToProps)(Home)

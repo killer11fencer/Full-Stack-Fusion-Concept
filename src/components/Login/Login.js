@@ -3,7 +3,7 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
-import {updateUsername, updateUserId} from '../../redux/reducer'
+import {updateUsername, updateUserId,updateAdmin} from '../../redux/reducer'
 
 class Login extends Component {
     constructor() {
@@ -12,7 +12,9 @@ class Login extends Component {
             loginUsername: '',
             loginPassword: '',
             loginError: false,
-            loginErrorMessage: 'Username or Password is incorrect. Please try again'
+            loginErrorMessage: 'Username or Password is incorrect. Please try again',
+            admin: false
+           
 
         }
     }
@@ -20,17 +22,19 @@ class Login extends Component {
         this.setState({[e.target.name]:e.target.value})
     }
     handleSubmit = async (e) => {
-        const {loginUsername,loginPassword} = this.state
+        const {loginUsername,loginPassword,admin} = this.state
         try {
             const res = await axios.post('/auth/login',{loginUsername,loginPassword})
             this.props.updateUsername(loginUsername)
             this.props.updateUserId(res.data.user_id)
+            this.props.updateAdmin(res.data.admin)
             this.props.history.push('/menu')
         } catch(err) {
-            this.setState({loginUsername: '',loginPassword:'',loginError:true})
+            this.setState({loginUsername: '',loginPassword:'',loginError:true,admin:false})
         }
     }
     render() {
+        
         return(
             <div className='Login'>
             <div>Username</div>
@@ -46,6 +50,7 @@ class Login extends Component {
 }
 const mapDispatchToProps = {
     updateUserId,
-    updateUsername
+    updateUsername,
+    updateAdmin
 }
 export default connect(null,mapDispatchToProps)(withRouter(Login))
