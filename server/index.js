@@ -80,3 +80,4 @@ app.post('/charge', async (req,res)=>{
 //admin functions
 //dishes
 app.delete('/api/menu/:id',dishCtrl.deleteDish)
+app.put('/api/menu/:id',dishCtrl.updateDish)
