@@ -8,7 +8,7 @@ import OrderDetails from './components/Orders/OrderDetails'
 import Orders from './components/Orders/Orders'
 import Menu from './components/Menu/Menu'
 import MenuItems from './components/Menu/MenuItems'
-
+import CreateNewDish from './components/CreateNewDish/CreateNewDish'
 
 export default (
     <Switch>
@@ -19,7 +19,8 @@ export default (
         <Route path='/orders/:id' component={OrderDetails}/>
         <Route path='/cart' component={Cart}/>
         <Route exact path='/menu' component={Menu}/>
-        <Route path='/menu/:id' component={MenuItems}/>
+        <Route  path='/menu/:id' component={MenuItems}/>
+        <Route path='/addnew' component={CreateNewDish}/>
       
     </Switch>
 )

@@ -23,6 +23,12 @@ module.exports = {
         db.getOneDish({id}).then(result=>res.status(200).send(result))
         .catch(err=>console.log('err on getOne',err))
     },
+    addDish: async (req,res) => {
+        const db = req.app.get('db')
+        const {dish_name,description,img,price,category_id} = this.state
+        db.createDish({dish_name,description,img,price,category_id}).then(result=>res.status(200).send(result))
+        .catch(err=>console.log('err on adding dish',err))
+    },
     register: async (req,res) => {
         const db = req.app.get('db')
         const {email,first_name,last_name,username,password,phone} = req.body

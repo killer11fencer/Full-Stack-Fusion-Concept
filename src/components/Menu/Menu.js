@@ -57,6 +57,7 @@ class Menu extends Component {
         return (
             <div>
                 Menu
+                {this.props.admin && <Link to='/addnew'>Add Dish</Link>}
     <Slider {...settings}>
                     <div>Appetizers:{appetizers}</div>
                     <div>Entree: {Entree}</div>

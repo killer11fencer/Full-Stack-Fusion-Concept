@@ -81,3 +81,4 @@ app.post('/charge', async (req,res)=>{
 //dishes
 app.delete('/api/menu/:id',dishCtrl.deleteDish)
 app.put('/api/menu/:id',dishCtrl.updateDish)
+app.post('/api/menu',ctrl.addDish)

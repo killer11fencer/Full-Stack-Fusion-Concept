@@ -52,7 +52,7 @@ class MenuItem extends Component {
     }
         
     render() {
-        console.log('DIIIISHHHH',this.state)
+        
         let dish = this.state.dish.map((elem, id) => {
 
             return <div key={id}>
