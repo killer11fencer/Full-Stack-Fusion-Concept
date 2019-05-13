@@ -12,7 +12,6 @@ const UPDATE_ADMIN = 'UPDATE_ADMIN'
 const UPDATE_AUTHENTICATED = 'UPDATE_AUTHENTICATED'
 const LOGOUT = 'LOGOUT'
 
-
 export function updateUserId(id) {
     return {
         type:UPDATE_USER_ID,

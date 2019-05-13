@@ -10,7 +10,7 @@ import Menu from './components/Menu/Menu'
 import MenuItems from './components/Menu/MenuItems'
 import CreateNewDish from './components/CreateNewDish/CreateNewDish'
 import Users from './components/Users/Users'
-import User from './components/Users/User'
+
 
 export default (
     <Switch>
@@ -24,7 +24,7 @@ export default (
         <Route  path='/menu/:id' component={MenuItems}/>
         <Route path='/addnew' component={CreateNewDish}/>
         <Route exact path='/users' component={Users}/>
-        <Route path='/users/:id' component={User}/>
+       
       
     </Switch>
 )
