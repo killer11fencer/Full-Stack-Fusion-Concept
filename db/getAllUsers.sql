@@ -1,2 +1,2 @@
-select users.id, first_name, last_name, email, phone, username from users
-join user_login on username.id = user_id;
+select users.id, first_name,last_name,phone,email,username from users
+join user_login on user_login.id = users.user_id;

@@ -84,4 +84,4 @@ app.delete('/api/menu/:id',dishCtrl.deleteDish)
 app.put('/api/menu/:id',dishCtrl.updateDish)
 app.post('/api/menu',ctrl.addDish)
 //users
-app.get('api/users',userCtrl.getAllUsers)
+app.get('/api/users',userCtrl.getAllUsers)

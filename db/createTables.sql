@@ -2,9 +2,17 @@ create table users (
     id serial primary key,
     first_name varchar(50),
     last_name varchar(50),
-    phone integer,
-    email varchar(50)
+    phone text,
+    email varchar(50),
+    user_id integer
 
+);
+
+create table user_login (
+    id serial primary key,
+    username varchar(50),
+    password text,
+    admin boolean
 );
 
 create table posts (
@@ -15,11 +23,6 @@ path varchar,
 button varchar
 );
 
-create table user_login (
-    id serial primary key,
-    username varchar(50),
-    password text
-);
 create table category (
     id serial primary key,
     name varchar

@@ -11,10 +11,10 @@ class Users extends Component {
         }
     }
     componentDidMount () {
-        // this.getAllUsers()
+        this.getAllUsers()
     }
     getAllUsers = () => {
-        axios.getAllUsers().then(res=>this.setState({users: res.data})).catch(err=> console.log('get all users',err))
+        axios.get('/api/users').then(res=>this.setState({users: res.data})).catch(err=> console.log('get all users',err))
     }
     render() {
         let displayUsers = this.state.users.map((user,i)=>
