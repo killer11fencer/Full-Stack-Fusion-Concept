@@ -2,13 +2,18 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import axios from 'axios'
+import {logout} from '../../redux/reducer'
 
 class Navbar extends Component {
 
-    logOut = () => {
+    logOut = async () => {
         axios.get('/auth/logout')
+        this.props.logout()
+        
     }
     render() {
+        console.log('should be logged out',this.props.authenticated)
+        console.log('admin',this.props.admin)
         return (
             <div className='navbar'>
 
@@ -27,7 +32,11 @@ class Navbar extends Component {
         )
     }
 }
-function mapStateToProps (state) {
-    return {authenticated: state.authenticated}
+const mapDispatchToProps = {
+    logout
 }
-export default connect(mapStateToProps)(Navbar)
+function mapStateToProps (state) {
+    return {authenticated: state.authenticated,
+            admin: state.admin}
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Navbar)

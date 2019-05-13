@@ -44,8 +44,7 @@ class Home extends Component {
             slidesToShow: 1,
             slidesToScroll: 1
         }
-        console.log('should be posts',this.state.posts)
-        console.log('admin',this.props.admin)
+        
         
      
         const posts = this.state.posts.map((post,id)=>{
