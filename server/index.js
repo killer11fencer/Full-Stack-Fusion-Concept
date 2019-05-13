@@ -6,6 +6,7 @@ const ctrl = require('./controller/ctrl')
 const cartCtrl = require('./controller/cartCtrl')
 const orderCtrl = require('./controller/orderCtrl')
 const dishCtrl = require('./controller/dishCtrl')
+const userCtrl = require('./controller/usersCtrl')
 
 const {CONNECTION_STRING,SERVER_PORT,SESSION_SECRET,STRIPE_API} = process.env
 const stripe = require('stripe')(STRIPE_API);
@@ -82,3 +83,5 @@ app.post('/charge', async (req,res)=>{
 app.delete('/api/menu/:id',dishCtrl.deleteDish)
 app.put('/api/menu/:id',dishCtrl.updateDish)
 app.post('/api/menu',ctrl.addDish)
+//users
+app.get('api/users',userCtrl.getAllUsers)

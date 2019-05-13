@@ -53,7 +53,7 @@ module.exports = {
        
         let orderedItems = cart.cart.map((elem)=>{
             let {dish_id,quantity} = elem
-            return db.addOrderItems([dish_id,quantity,users_id,order_id])
+            return db.addOrderItems([dish_id,quantity,order_id])
         })
         cart.cart = [],
         cart.total = 0

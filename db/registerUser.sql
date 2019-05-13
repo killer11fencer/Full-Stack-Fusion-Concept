@@ -1,9 +1,8 @@
-insert into user_login (username,password)
-values(
-    ${username},
-    ${hash}
+insert into users (first_name,last_name,email,phone,user_id)
+values (
+    ${first_name},
+    ${last_name},
+    ${email},
+    ${phone},
+    ${user_id}
 );
-
-select id from user_login
-order by id desc,
-

@@ -31,7 +31,7 @@ module.exports = {
     },
     register: async (req,res) => {
         const db = req.app.get('db')
-        const {email,first_name,last_name,username,password,phone} = req.body
+        const {email,first_name,last_name,username,password,phone,admin} = req.body
         const {session} = req
         let emailTaken = await db.checkEmail({email})
         emailTaken = +emailTaken[0].count
@@ -39,14 +39,21 @@ module.exports = {
         if(emailTaken !== 0) { return res.sendStatus(409)}
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password,salt)
-        const user_id = await db.registerUser({
+        const user_login = await db.registerUserLogin({
+            username,
+            hash,
+            admin
+            
+        })
+        let user_id = user_login[0].id
+        
+        db.registerUser({
             email,
             first_name,
             last_name,
-            username,
-            hash,
-            phone
-        })
+            phone,
+            user_id})
+
         session.user = {
             username,
             first_name,

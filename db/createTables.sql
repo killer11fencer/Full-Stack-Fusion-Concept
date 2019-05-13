@@ -26,7 +26,7 @@ create table category (
 );
 create table orders (
 id serial primary key,
-users_id integer references users,
+users_id integer, 
 status varchar(50),
 created_at varchar,
 notes varchar
@@ -41,8 +41,8 @@ create table dishes (
 );
 create table order_items (
     id serial primary key,
-    order_id integer references orders,
-    dish_id integer references dishes,
+    order_id integer,
+    dish_id integer,
     quantity integer
 );
 
