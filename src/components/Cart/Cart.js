@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {Elements,StripeProvider} from 'react-stripe-elements'
+import {connect} from 'react-redux'
 import CheckOutForm from '../CheckOutForm/CheckOutForm'
 import Popup from 'reactjs-popup'
 
@@ -74,4 +75,7 @@ class Cart extends Component {
     }
 }
 
-export default Cart
+function mapStateToProps (state) {
+    return {admin: state.client.admin}
+}
+export default connect(mapStateToProps)(Cart)
