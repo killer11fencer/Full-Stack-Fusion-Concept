@@ -87,7 +87,7 @@ class Home extends Component {
 }
 function mapStateToProps (state) {
     return {
-        admin: state.admin
+        admin: state.client.admin
     }
 }
 export default connect(mapStateToProps)(Home)

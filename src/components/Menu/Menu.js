@@ -68,6 +68,6 @@ class Menu extends Component {
     }
 }
 function mapStateToProps (state) {
-    return {admin:state.admin}
+    return {admin:state.client.admin}
 }
     export default connect(mapStateToProps)(Menu)

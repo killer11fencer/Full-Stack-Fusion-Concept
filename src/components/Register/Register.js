@@ -64,6 +64,6 @@ const mapDispatchToProps = {
     updateUsername
 }
 function mapStateToProps (state) {
-    return {admin: state.admin}
+    return {admin: state.client.admin}
 }
 export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Register))

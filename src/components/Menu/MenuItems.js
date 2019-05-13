@@ -95,8 +95,8 @@ class MenuItem extends Component {
 
 function mapStateToProps(state) {
     return {
-        authenticated: state.authenticated,
-        admin: state.admin
+        authenticated: state.client.authenticated,
+        admin: state.client.admin
     }
 
 }

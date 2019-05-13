@@ -37,7 +37,7 @@ const mapDispatchToProps = {
     logout
 }
 function mapStateToProps (state) {
-    return {authenticated: state.authenticated,
-            admin: state.admin}
+    return {authenticated: state.client.authenticated,
+            admin: state.client.admin}
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Navbar)
