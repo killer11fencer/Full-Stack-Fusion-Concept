@@ -36,12 +36,17 @@ class Cart extends Component {
     deleteCart = (item) => {
         axios.delete(`/api/cart/${item.dish_id}/${item.price}/${item.quantity}`).then(this.getCart())
     }
-    createOrder = (order) => {
-       
+    createOrder = async (order) => {
         axios.post('/api/orders',order).then(this.getCart())
         this.props.history.push('/orders')
-        }
-      
+        
+    }
+    createAdminOrder = async () => {
+        const {cart} = this.state
+        const users_id = this.props.adminOrder_id
+        axios.post('/api/admin',{cart,users_id}).then(this.getCart())
+        this.props.history.push('/orders')
+    }
     
     render() {
         let apikey = 'pk_test_QWjXZ8OXgnOfLqfw5I7I6WxS00yduxeF4w'
@@ -62,11 +67,12 @@ class Cart extends Component {
             <StripeProvider apiKey={apikey}>
             <div>{displayCart}
                 <div>Total: ${this.state.total}</div>
-                <Popup className='modal' trigger={<button>Submit</button>} position='right'>
+                {this.props.admin && this.props.user && <button onClick={(e)=>this.createAdminOrder()}>Submit Order</button>}
+                {!this.props.admin && <Popup className='modal' trigger={<button>Submit</button>} position='right'>
                 <Elements>
                 <CheckOutForm cart={this.state.cart} createOrder={this.createOrder} total={this.state.total}/>
                 </Elements>
-                </Popup>
+                </Popup>}
                 <Link to='/menu'><button>Cancel</button></Link>
                 
             </div>
@@ -76,6 +82,9 @@ class Cart extends Component {
 }
 
 function mapStateToProps (state) {
-    return {admin: state.client.admin}
+    return {admin: state.client.admin,
+            adminOrder_id: state.admin.adminOrder_id,
+            user: state.admin.user
+            }
 }
 export default connect(mapStateToProps)(Cart)

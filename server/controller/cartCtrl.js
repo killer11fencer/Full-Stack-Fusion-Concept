@@ -46,7 +46,7 @@ module.exports = {
         let users_id = user.id
 
 
-        let status = 'New Order'
+        let status = 'Order Submitted'
         
         const data = await db.addOrder([users_id,status])
         let order_id = data[0].id
@@ -60,6 +60,26 @@ module.exports = {
 
         res.sendStatus(200)
 
+
+    },
+    createAdminOrder: async (req,res) => {
+        const db = req.app.get('db')
+        let {cart} = req.session
+        const {users_id} = req.body
+     
+        let status = 'Order Submitted'
+        const data = await db.addOrder([users_id,status])
+        let order_id = data[0].id
+        
+        let orderedItems = cart.cart.map((elem)=>{
+            let {dish_id,quantity} = elem
+            return db.addOrderItems([dish_id,quantity,order_id])
+        })
+        cart.cart = [],
+        cart.total = 0
+
+        res.sendStatus(200)
+        
 
     }
 

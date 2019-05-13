@@ -85,3 +85,7 @@ app.put('/api/menu/:id',dishCtrl.updateDish)
 app.post('/api/menu',ctrl.addDish)
 //users
 app.get('/api/users',userCtrl.getAllUsers)
+// Orders for client
+app.post('/api/admin',cartCtrl.createAdminOrder)
+// Get Orders for admin
+app.get('/api/admin/orders',orderCtrl.getAllOrdersAdmin)
