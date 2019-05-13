@@ -25,8 +25,8 @@ module.exports = {
     },
     addDish: async (req,res) => {
         const db = req.app.get('db')
-        const {dish_name,description,img,price,category_id} = this.state
-        db.createDish({dish_name,description,img,price,category_id}).then(result=>res.status(200).send(result))
+        const {name,description,img,price,category_id} = req.body
+        db.addDish({name,description,img,price,category_id}).then(result=>res.status(200).send(result))
         .catch(err=>console.log('err on adding dish',err))
     },
     register: async (req,res) => {

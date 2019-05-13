@@ -45,7 +45,7 @@ class Menu extends Component {
         }
         )
         let Entree = this.state.dishes.map((elem, id) => {
-            if (elem.name === "Entree") {
+            if (elem.name === "Entrees") {
                 return <div key={id}><Link to={`/menu/${elem.dish_id}`}>
                     <h4>{elem.dish_name}</h4>
                     <img width='100' src={elem.img} alt='Kimbop' />

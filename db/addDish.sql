@@ -1,2 +1,2 @@
-insert into dishes {name.description,img,category_id,price}
-values (${name},${description},${img},${category_id},${price})
+insert into dishes (name,description,img,price,category_id)
+values (${name},${description},${img},${price},${category_id})

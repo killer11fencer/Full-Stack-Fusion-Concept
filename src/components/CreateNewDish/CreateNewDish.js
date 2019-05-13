@@ -6,7 +6,7 @@ class CreateNewDish extends Component {
     constructor() {
         super();
         this.state = {
-            dish_name: '',
+            name: '',
             description: '',
             img: '',
             price: null,
@@ -17,12 +17,13 @@ class CreateNewDish extends Component {
         this.setState({[e.target.name]:e.target.value})
     }
     addDish = () => {
-        const {dish_name,description,img,price,category_id} = this.state
-        axios.post('/api/menu',{name:dish_name,description,img,price,category_id}).then(res=> res.sendStatus(200))
+        const {name,description,img,price,category_id} = this.state
+        
+        axios.post('/api/menu',{name,description,img,price,category_id})
         this.props.history.push('/menu')
     }
     cancelAddition = () => {
-        this.setState({dish_name: '',
+        this.setState({name: '',
         description: '',
         img: '',
         price: null,
@@ -34,7 +35,7 @@ class CreateNewDish extends Component {
         return(
             <div>
                  <div>Dish Name:</div>
-                    <input name='dish_name' placeholder='Dish Name' onChange={this.handleChange} />
+                    <input name='name' placeholder='Dish Name' onChange={this.handleChange} />
                     <div>Description</div>
                     <input name='description' placeholder='Description'onChange={this.handleChange} />
                     <div>Image URL</div>
