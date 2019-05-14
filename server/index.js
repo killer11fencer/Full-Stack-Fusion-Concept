@@ -40,6 +40,8 @@ massive(CONNECTION_STRING).then(db=>{
  
     app.listen(SERVER_PORT,()=>console.log('listening on port',SERVER_PORT))}).catch(err=>console.log('err connection',err))
 
+// Sessions for refresh
+app.get('/api/session',ctrl.getSession)
 // Home Page
 app.get('/api/posts',ctrl.getAllPosts)
 app.post('/api/posts',ctrl.addPosts)
@@ -90,3 +92,4 @@ app.post('/api/admin',cartCtrl.createAdminOrder)
 // Get Orders for admin
 app.get('/api/admin/orders',orderCtrl.getAllOrdersAdmin)
 app.put('/api/admin/orders/:id',orderCtrl.updateOrderAdmin)
+

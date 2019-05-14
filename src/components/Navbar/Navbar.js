@@ -5,8 +5,11 @@ import axios from 'axios'
 import {logout} from '../../redux/reducer'
 import {cancelOrder} from '../../redux/adminReducer'
 
+
 class Navbar extends Component {
 
+
+    
     logOut = async () => {
         axios.get('/auth/logout')
         this.props.cancelOrder()
@@ -38,6 +41,7 @@ class Navbar extends Component {
 const mapDispatchToProps = {
     logout,
     cancelOrder
+  
 }
 function mapStateToProps (state) {
     return {authenticated: state.client.authenticated,

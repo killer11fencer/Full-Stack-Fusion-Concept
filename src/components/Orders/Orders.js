@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Popup from 'reactjs-popup'
+// import {updateAuthenticated,updateAdmin} from '../../redux/reducer'
 
 
 class Orders extends Component {
@@ -14,7 +15,13 @@ class Orders extends Component {
             notes: ''
         }
     }
-    componentDidMount() {
+    async componentDidMount() {
+        // const session = await axios.get('/api/session')
+        // console.log('session data',session.data)
+        // if(session) {
+        //     this.props.updateAuthenticated(session.data.user.authenticated)
+        //     this.props.updateAdmin(session.data.user.admin)
+        // }
         if (!this.props.admin && this.props.authenticated) { return this.getAllOrders() }
         if (this.props.admin) { return this.getAllOrdersAdmin() }
     }
@@ -29,13 +36,14 @@ class Orders extends Component {
         await axios.put(`api/admin/orders/${id}`, { status, notes }).then(res => this.setState({ orders: res.data }))
         this.getAllOrdersAdmin()
     }
+    
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
     render() {
         console.log(this.state.orders)
         let displayOrders = this.state.orders.map((elem, i) => {
-            return <div><Link key={i} to={`/orders/${elem.id}`}><div >Order:{elem.id}</div>
+            return <div key={i} ><Link to={`/orders/${elem.id}`}><div >Order:{elem.id}</div>
                 
                 {this.props.admin && <div><div>Customer: {elem.first_name} {elem.last_name}</div>
                     <div>User ID: {elem.users_id}</div>
@@ -59,6 +67,10 @@ class Orders extends Component {
         )
     }
 }
+// const mapDispatchToProps = {
+//  updateAuthenticated,
+//  updateAdmin
+// }
 function mapStateToProps(state) {
     return {
         admin: state.client.admin,

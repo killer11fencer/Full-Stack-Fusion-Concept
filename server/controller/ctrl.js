@@ -1,5 +1,10 @@
 const bcrypt = require('bcryptjs')
 module.exports = {
+    getSession: (req,res) => {
+        const {session} = req
+        res.status(200).send(session)
+        
+    },
     getAllPosts: async (req,res) => {
         const db = req.app.get('db')
         db.getAllPosts().then(result=>res.status(200).send(result))
