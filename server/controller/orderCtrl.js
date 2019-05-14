@@ -10,6 +10,12 @@ module.exports = {
         const db = req.app.get('db')
         db.getAllOrdersAdmin().then(result=>res.status(200).send(result))
     },
+    updateOrderAdmin: (req,res) => {
+        const db = req.app.get('db')
+        let {id} = req.params
+        let {status,notes} = req.body
+        db.updateOrderAdmin({id,status,notes}).then(result=>res.status(200).send(result))
+    },
     orderDetails : async (req,res) => {
         const db = req.app.get('db')
         const {id} = req.params

@@ -89,3 +89,4 @@ app.get('/api/users',userCtrl.getAllUsers)
 app.post('/api/admin',cartCtrl.createAdminOrder)
 // Get Orders for admin
 app.get('/api/admin/orders',orderCtrl.getAllOrdersAdmin)
+app.put('/api/admin/orders/:id',orderCtrl.updateOrderAdmin)

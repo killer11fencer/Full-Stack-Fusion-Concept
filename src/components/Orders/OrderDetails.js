@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 
+
 class OrderDetails extends Component {
     constructor() {
         super();
         this.state = {
             orderDetails: [],
-
+           
         }
     }
     componentDidMount() {
@@ -18,7 +19,7 @@ class OrderDetails extends Component {
         await axios.get(`/api/orders/${this.props.match.params.id}`).then(res => this.setState({ orderDetails: res.data }))
             .catch(err => console.log('err on get one', err))
     }
-   
+  
     render() {
         console.log(this.state.orderDetails)
         let orderTotal = this.state.orderDetails.map(item=> item.quantity * item.dish_price).reduce(((acc,val)=>acc+val), 0)
