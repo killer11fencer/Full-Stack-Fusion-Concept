@@ -1,0 +1,15 @@
+.mobileView {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-content: center;
+    background-color: white;
+    height: 100%;
+    a{ color:black;
+       text-decoration: none;}
+}
+
+.Buttons { 
+    height: 20%;
+    border: 2px black;
+}
