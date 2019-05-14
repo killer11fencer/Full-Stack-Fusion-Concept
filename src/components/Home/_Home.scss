@@ -1,16 +1,16 @@
 .postImage {
-    width: 300px;
-    height: 300px;
+    width: 600px;
+    
 }
 
 .slider {
-    width: 300px;
+    width: 600px;
     .Posts {
       position: relative;
-     
+        left: 40%;
       .slick-prev, .slick-next {
         position: absolute;
-        top: 50%
+        top: 35%
       }
       .slick-prev {
         left: 5%;
@@ -21,4 +21,18 @@
         z-index: 1;
       }
     }
+}
+
+
+
+.address {
+    height: 40px;
+    display: flex;
+    width: 100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    width: 100%;
+    font-size: 12px;
 }

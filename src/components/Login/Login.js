@@ -38,15 +38,18 @@ class Login extends Component {
     render() {
         
         return(
+            <div className='loginScreen'>
             <div className='Login'>
-            <div>Username</div>
+            <div className='title'>LOGIN</div>
+            <div className='inputNames'>Username</div>
             <input name='loginUsername' placeholder='Username' value={this.state.loginUsername} onChange={this.handleChange}/>
-            <div>Password</div>
+            <div className='inputNames'>Password</div>
             <input name='loginPassword' placeholder='Password' value={this.state.loginPassword} onChange={this.handleChange}/>
-           <button onClick={this.handleSubmit}>Login</button>
-            <Link to='/'><button>Cancel</button></Link>
+           <button className='button'onClick={this.handleSubmit}>Login</button>
+           <Link to='/'><button className='button' >Cancel</button></Link>
             <div>Not a member? <Link to='/register'>Register Here</Link></div>
             {this.state.loginError && <h3>{this.state.loginErrorMessage}</h3>}
+            </div>
             </div>
         )
     }
