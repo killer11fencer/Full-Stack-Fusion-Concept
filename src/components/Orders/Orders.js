@@ -22,8 +22,12 @@ class Orders extends Component {
         axios.get('/api/admin/orders').then(res=>this.setState({orders: res.data}))
     }
     render() {
+        console.log(this.state.orders)
         let displayOrders = this.state.orders.map((elem,i)=>{
             return <Link key={i} to={`/orders/${elem.id}`}><div >Order:{elem.id}</div>
+                    {this.props.admin && <div><div>Customer: {elem.first_name} {elem.last_name}</div>
+                        <div>User ID: {elem.users_id}</div>
+                        <div>Contact {elem.phone}</div></div>}
                     <div>Status:{elem.status}</div>
                     <div>Date Created:{elem.created_at}</div>
                     <div>Notes:{elem.notes}</div> </Link>

@@ -4,7 +4,7 @@ const initialState = {
     cart: [],
    
 }
-const UPDATE_CART = 'UPDATE_CART'
+// const UPDATE_CART = 'UPDATE_CART'
 const ADMINORDER_ID = 'ADMINORDER_ID'
 const UPDATE_USER = 'UPDATE_USER'
 const CANCEL_ORDER = 'CANCEL_ORDER'
@@ -15,12 +15,12 @@ export function adminOrder_id(user_id) {
             payload:user_id}
 }
 
-export function updateCart(cart) {
-    return {
-        type: UPDATE_CART,
-        payload: cart
-    }
-}
+// export function updateCart(cart) {
+//     return {
+//         type: UPDATE_CART,
+//         payload: cart
+//     }
+// }
 export function updateUser(user) {
     return {
         type: UPDATE_USER,
@@ -34,8 +34,8 @@ export function cancelOrder() {
 export default function reducer(state = initialState,action) {
     const {type, payload} = action
     switch(type) {
-        case UPDATE_CART:
-        return {...state,updateCart:payload}
+        // case UPDATE_CART:
+        // return {...state,updateCart:payload}
         case ADMINORDER_ID:
         return {...state, adminOrder_id:payload}
         case UPDATE_USER:

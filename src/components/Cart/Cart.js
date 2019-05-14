@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import {Elements,StripeProvider} from 'react-stripe-elements'
 import {connect} from 'react-redux'
 import CheckOutForm from '../CheckOutForm/CheckOutForm'
+import {cancelOrder} from '../../redux/adminReducer'
 import Popup from 'reactjs-popup'
 
 
@@ -45,6 +46,7 @@ class Cart extends Component {
         const {cart} = this.state
         const users_id = this.props.adminOrder_id
         axios.post('/api/admin',{cart,users_id}).then(this.getCart())
+        this.props.cancelOrder()
         this.props.history.push('/orders')
     }
     
@@ -80,6 +82,9 @@ class Cart extends Component {
         )
     }
 }
+const mapDispatchToProps = {
+    cancelOrder
+}
 
 function mapStateToProps (state) {
     return {admin: state.client.admin,
@@ -87,4 +92,4 @@ function mapStateToProps (state) {
             user: state.admin.user
             }
 }
-export default connect(mapStateToProps)(Cart)
+export default connect(mapStateToProps,mapDispatchToProps)(Cart)
