@@ -26,7 +26,7 @@ class Orders extends Component {
     }
     orderStatusUpdate = async (id) => {
         let {status,notes} = this.state
-        axios.put(`api/admin/orders/${id}`,{status,notes}).then(res => this.setState({orders: res.data}))
+        await axios.put(`api/admin/orders/${id}`,{status,notes}).then(res => this.setState({orders: res.data}))
         this.getAllOrdersAdmin()
     }
     handleChange = (e) => {
