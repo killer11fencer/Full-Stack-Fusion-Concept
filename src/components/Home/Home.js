@@ -58,19 +58,20 @@ class Home extends Component {
         })
         return (
             <div>
+                <img alt='cooking background' className='home' src='https://www.rosewoodhotels.com/conversations/conversations/wp-content/uploads/2017/04/GettyImages-621141664.jpg' />
                 <div className='slider'>
                     <Slider {...settings}>
                         {posts}
                     </Slider>
-                    </div>
-                    <footer>
-                        <div className='address'>
-                            <div>Fusion Asian</div>
-                            <div>Address: 1469 Center st, <br/> Provo,UT 84660</div>
-                            <div>Phone: 805 611 91121</div>
-                            </div>
-                    </footer>
-               
+                </div>
+
+                <div className='address'>
+                    <div>Fusion Asian</div>
+                    <div>Address: 1469 Center st, <br /> Provo,UT 84660</div>
+                    <div>Phone: 805 611 91121</div>
+                </div>
+
+
                 {this.props.admin && <div>
                     <h3>Update Posts</h3>
                     <div>Title</div>

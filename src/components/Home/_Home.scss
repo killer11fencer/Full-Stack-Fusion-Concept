@@ -18,15 +18,21 @@
       }
       .slick-next {
         right: 5%;
-        z-index: 1;
+        z-index: -9;
       }
     }
 }
 
-
+.home {
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index: -1;
+}
 
 .address {
-    height: 40px;
+  
+    height: 50px;
     display: flex;
     width: 100px;
     flex-direction: column;

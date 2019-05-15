@@ -54,7 +54,7 @@ class Login extends Component {
 
                 <div className='address'>
                     <div>Fusion Asian</div>
-                    <div>Address: 1469 Center st, <br /> Provo,UT 84660</div>
+                    <div>Address: 1469 Center st, <br /> Provo, UT 84660</div>
                     <div>Phone: 805 611 91121</div>
                 </div>
 
