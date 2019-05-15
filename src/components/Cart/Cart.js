@@ -55,19 +55,24 @@ class Cart extends Component {
         console.log(this.state.cart)
        
         let displayCart = this.state.cart.map((item, index) => {
-            return <div key={index}><h5>{item.dish_name}</h5>
-                <img width='50px' alt='food'src={item.img} />
-                <div>Quantity: <input onChange={this.handleChange} name='userInput' placeholder={item.quantity}
-                     /></div>
+            return <div className="cart"key={index}><h3>{item.dish_name}</h3>
+                <img className='cartImg' alt='food'src={item.img} />
+                <div className='options'>
+                <div> Quantity: <input onChange={this.handleChange} name='userInput' placeholder={item.quantity}/>
                 <button onClick={(e)=>this.updateCart(index,this.state.userInput)}>Update</button>
-                
+                </div>
                 <button onClick={(e)=>this.deleteCart(item)}>Delete</button>
+                </div>
             </div>
         })
 
         return (
             <StripeProvider apiKey={apikey}>
-            <div>{displayCart}
+            <div>
+            <div className='menuTitle'></div>
+            <div className='MenuText'><h1>Cart</h1></div>
+            <div className='cartDisplay'>{displayCart}</div>
+            <img className='home' src='https://thepioneerwoman.com/wp-content/uploads/2018/09/5-easy-korean-side-dishes-banchan-ebb098ecb0ac-33.jpg'/>
                 <div>Total: ${this.state.total}</div>
                 {this.props.admin && this.props.user && <button onClick={(e)=>this.createAdminOrder()}>Submit Order</button>}
                 {!this.props.admin && <Popup className='modal' trigger={<button>Submit</button>} position='right'>
@@ -76,7 +81,11 @@ class Cart extends Component {
                 </Elements>
                 </Popup>}
                 <Link to='/menu'><button>Cancel</button></Link>
-                
+                <div className='address'>
+                    <div>Fusion Asian</div>
+                    <div>Address: 1469 Center st, <br /> Provo,UT 84660</div>
+                    <div>Phone: 805 611 91121</div>
+                </div>
             </div>
             </StripeProvider>
         )

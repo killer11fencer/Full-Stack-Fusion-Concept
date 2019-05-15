@@ -62,7 +62,7 @@ class Home extends Component {
             </div>
         })
         return (
-            <div>
+            <>
                 <img alt='cooking background' className='home' src='https://www.rosewoodhotels.com/conversations/conversations/wp-content/uploads/2017/04/GettyImages-621141664.jpg' />
                 <div className='white'></div> 
                 <div className='slider'>
@@ -97,7 +97,7 @@ class Home extends Component {
                     </div>
                 </div>
                 }
-            </div>
+            </>
         )
     }
 }
