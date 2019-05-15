@@ -93,7 +93,7 @@ class Home extends Component {
                     <input className='update' name='path' onChange={this.handleChange} />
                     <div>Button</div>
                     <input className='update' name='button' onChange={this.handleChange} />
-                    <button className='button' onClick={this.onSubmit}>Submit New Posts</button>
+                    <button className='updateButton' onClick={this.onSubmit}>Submit New Posts</button>
                     </div>
                 </div>
                 }

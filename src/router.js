@@ -11,6 +11,7 @@ import MenuItems from './components/Menu/MenuItems'
 import CreateNewDish from './components/CreateNewDish/CreateNewDish'
 import Users from './components/Users/Users'
 import NavigationPage from './components/Navbar/NavigationPage'
+import About from './components/About/About'
 
 export default (
     <Switch>
@@ -25,6 +26,7 @@ export default (
         <Route path='/addnew' component={CreateNewDish}/>
         <Route exact path='/users' component={Users}/>
        <Route path='/navigation' component={NavigationPage}/>
+       <Route path='/about' component={About}/>
       
     </Switch>
 )
