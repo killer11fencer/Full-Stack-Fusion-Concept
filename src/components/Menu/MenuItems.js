@@ -56,21 +56,24 @@ class MenuItem extends Component {
         let dish = this.state.dish.map((elem, id) => {
 
             return <div key={id}>
-                <h3>{elem.name}</h3>
-                <h3>{elem.dish_name}</h3>
-                <img width='200' src={elem.img} alt='kimbop' />
+             <img className='home' src='https://i.kinja-img.com/gawker-media/image/upload/s--djYdkXK4--/c_scale,f_auto,fl_progressive,q_80,w_1600/be9vyovcn2gqwod7kd16.jpg' />
+             <div className='menuTitle'></div>
+                <h1 className='MenuText'>{elem.name}</h1>
+                <div className='category'>
+                <h2>{elem.dish_name}</h2>
+                <img className='itemIMG'name='img' src={elem.img} alt='kimbop' />
                 <h4>{`Price: $${elem.price}`}</h4>
                 {!this.props.admin && <button onClick={e => this.addToCart(elem)}>Add To Cart</button>}
-                <h4>{elem.description}</h4>
+                <h4 className='itemDescription'>{elem.description}</h4>
                 <Link to='/menu'>Back</Link>
-                <Link to={`/menu/${elem.dish_id + 1}`}>Next</Link>
+                </div>
                 {this.props.admin && <div>
                     <div>Dish Name:</div>
                     <input name='dish_name' defaultValue={elem.dish_name} onChange={this.handleChange} />
                     <div>Description</div>
                     <input name='description' defaultValue={elem.description} onChange={this.handleChange} />
                     <div>Image URL</div>
-                    <input name='img' defaultValue={elem.img} onChange={this.handleChange} />
+                    <input  defaultValue={elem.img} onChange={this.handleChange} />
                     <div>Price</div>
                     <input name='price' defaultValue={elem.price} onChange={this.handleChange} />
                     <div>Dish Category</div>
@@ -82,12 +85,18 @@ class MenuItem extends Component {
                         <option value="4">Soup</option>
                     </select>
                     <button onClick={(e)=>this.updateDish(elem.dish_id)}>Update</button>
+  
                 </div>}
             </div>
         })
         return (
             <div>
                 {dish}
+                <div className='address'>
+                    <div>Fusion Asian</div>
+                    <div>Address: 1469 Center st, <br /> Provo,UT 84660</div>
+                    <div>Phone: 805 611 91121</div>
+                </div>
             </div>
         )
     }
