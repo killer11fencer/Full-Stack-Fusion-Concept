@@ -64,11 +64,13 @@ class Home extends Component {
         return (
             <div>
                 <img alt='cooking background' className='home' src='https://www.rosewoodhotels.com/conversations/conversations/wp-content/uploads/2017/04/GettyImages-621141664.jpg' />
-                <div className='white'></div>
+                <div className='white'></div> 
                 <div className='slider'>
                     <Slider {...settings}>
                         {posts}
                     </Slider>
+                    
+                  
                 </div>
 
                 <div className='address'>
@@ -78,19 +80,21 @@ class Home extends Component {
                 </div>
 
 
-                {this.props.admin && <div>
+                {this.props.admin && <div className='adminUpdate'>
+                <div className='adminInputs'>
                     <h3>Update Posts</h3>
                     <div>Title</div>
-                    <input name='title' onChange={this.handleChange} />
+                    <input className='update' name='title' onChange={this.handleChange} />
                     <div>Description</div>
-                    <input name='description' onChange={this.handleChange} />
+                    <input className='update' name='description' onChange={this.handleChange} />
                     <div>Image</div>
-                    <input name='img' onChange={this.handleChange} />
+                    <input className='update' name='img' onChange={this.handleChange} />
                     <div>Link to</div>
-                    <input name='path' onChange={this.handleChange} />
+                    <input className='update' name='path' onChange={this.handleChange} />
                     <div>Button</div>
-                    <input name='button' onChange={this.handleChange} />
-                    <button onClick={this.onSubmit}>Submit New Posts</button>
+                    <input className='update' name='button' onChange={this.handleChange} />
+                    <button className='button' onClick={this.onSubmit}>Submit New Posts</button>
+                    </div>
                 </div>
                 }
             </div>
