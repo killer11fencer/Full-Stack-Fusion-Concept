@@ -39,6 +39,7 @@ class Home extends Component {
     render() {
         const settings = {
             arrows: true,
+            dots: true,
             infinite: true,
             speed: 500,
             slidesToShow: 1,
@@ -50,15 +51,20 @@ class Home extends Component {
 
         const posts = this.state.posts.map((post, id) => {
             return <div key={id}>
-                <h4>{post.title}</h4>
+                <h1>{post.title}</h1>
+                <div className='content'>
                 <img className='postImage' src={post.img} alt={post.title} />
-                <h5>{post.description}</h5>
+                <div className='text'>
+                <h5 className='description'>{post.description}</h5>
                 <Link to={post.path}>{post.button}</Link>
+                </div>
+                </div>
             </div>
         })
         return (
             <div>
                 <img alt='cooking background' className='home' src='https://www.rosewoodhotels.com/conversations/conversations/wp-content/uploads/2017/04/GettyImages-621141664.jpg' />
+                <div className='white'></div>
                 <div className='slider'>
                     <Slider {...settings}>
                         {posts}
