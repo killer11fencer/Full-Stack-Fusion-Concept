@@ -6,3 +6,54 @@
 .itemDescription {
     width: 900px;
 }
+.MenuCategory {
+    position: absolute;
+    top: 25%;
+    left: 20%;
+   
+}
+.menuDetailDishName {
+    width: 500px;
+    margin-right: 0;
+}
+.menuDetailsAdd {
+position: relative;
+top: -14vh;
+left: 106%;
+width: 30%;
+background-color: blue;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+}
+.itemDescription {
+    position: absolute;
+    left: 106%;
+    top: 7vh;
+    width: 80%;
+    line-height: 2.5em; 
+}
+.menuDetailPrice {
+    position: relative;
+    left: 106%;
+    width: 27%;
+    top: -18vh;
+}
+.menuDetailsBack {
+    position: absolute;
+    top: 55vh;
+    left: 0;
+    width: 30%;
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}

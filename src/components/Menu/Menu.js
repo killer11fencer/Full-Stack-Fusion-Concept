@@ -55,8 +55,8 @@ class Menu extends Component {
                     <img className='menuImg' src={elem.img} alt='Kimbop' />
                     <h5>Price: {elem.price}</h5>
                 </Link>
-                    {this.props.admin && !this.props.user && <button onClick={(e) => this.deleteDish(elem.dish_id)}>Delete</button>}
-                    {this.props.user && <button onClick={(e) => this.addToCart(elem)}>Add To Cart</button>}</div>
+                    {this.props.admin && !this.props.user && <button className='deleteDish' onClick={(e) => this.deleteDish(elem.dish_id)}>Delete</button>}
+                    {this.props.user && <button className='addCartButton' onClick={(e) => this.addToCart(elem)}>Add To Cart</button>}</div>
             }
         }
         )
@@ -66,8 +66,8 @@ class Menu extends Component {
                     <h4>{elem.dish_name}</h4>
                     <img className='menuImg' src={elem.img} alt='Kimbop' />
                     <h5> Price: {elem.price}</h5>
-                </Link>{this.props.admin && !this.props.user && <button onClick={(e) => this.deleteDish(elem.dish_id)}>Delete</button>}
-                    {this.props.user && <button onClick={(e) => this.addToCart(elem)}>Add To Cart</button>}</div>
+                </Link>{this.props.admin && !this.props.user && <button className='deleteDish' onClick={(e) => this.deleteDish(elem.dish_id)}>Delete</button>}
+                    {this.props.user && <button className='addCartButton' onClick={(e) => this.addToCart(elem)}>Add To Cart</button>}</div>
             }
         }
         )

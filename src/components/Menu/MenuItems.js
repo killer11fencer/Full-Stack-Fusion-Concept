@@ -59,13 +59,13 @@ class MenuItem extends Component {
              <img className='home' src='https://i.kinja-img.com/gawker-media/image/upload/s--djYdkXK4--/c_scale,f_auto,fl_progressive,q_80,w_1600/be9vyovcn2gqwod7kd16.jpg' />
              <div className='menuTitle'></div>
                 <h1 className='MenuText'>{elem.name}</h1>
-                <div className='category'>
-                <h2>{elem.dish_name}</h2>
+                <div className='MenuCategory'>
+                <h2 className='menuDetailDishName'>{elem.dish_name}</h2>
                 <img className='itemIMG'name='img' src={elem.img} alt='kimbop' />
-                <h4>{`Price: $${elem.price}`}</h4>
-                {!this.props.admin && <button onClick={e => this.addToCart(elem)}>Add To Cart</button>}
+                <h2 className='menuDetailPrice'>{`Price: $${elem.price}`}</h2>
+                {!this.props.admin && <button className='menuDetailsAdd'onClick={e => this.addToCart(elem)}>Add To Cart</button>}
                 <h4 className='itemDescription'>{elem.description}</h4>
-                <Link to='/menu'>Back</Link>
+                <Link to='/menu'><button className='menuDetailsBack'>Back</button></Link>
                 </div>
                 {this.props.admin && <div>
                     <div>Dish Name:</div>
