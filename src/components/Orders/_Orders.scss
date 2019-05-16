@@ -13,8 +13,8 @@
 .orderDetails {
    
     display: flex;
-    justify-content: space-between;
-    height: 20vh;
+    justify-content: space-evenly;
+    height: 25vh;
     width: 20vw;
     display: flex;
     a{ color:black;
@@ -26,17 +26,19 @@ body {
 
 }
 
-.updateButton {
-   position: relative;
-    top: 7vh;
-    display: flex;
-    height: 40px;
-    background-color: blue;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    
-}
+.ordersUpdateStatus {
+    position: relative;
+     top: 7em;
+     left: 4em;
+     width: 80%;
+     display: flex;
+     height: 40px;
+     background-color: blue;
+     border: none;
+     color: white;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 16px;
+     
+  }

@@ -1,0 +1,27 @@
+.displayUsers {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    justify-content: space-evenly;
+    min-width:60%;
+    line-height: .5em;
+    height: 80%;
+    display: flex;
+    flex-wrap: row wrap;
+    flex: 1 1 100px;
+}
+
+
+    
+.createOrder {
+    position: relative;
+    top: 1em;
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}

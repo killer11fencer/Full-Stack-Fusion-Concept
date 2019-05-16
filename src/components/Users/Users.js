@@ -28,15 +28,18 @@ class Users extends Component {
 
         let displayUsers = this.state.users.map((user,i)=>
         { return <div key={i}>
-        <div>Username: {user.username}</div>
-        <div>Customer Name: {user.first_name} {user.last_name}</div>
-        <div>Contact: {user.phone}</div>
-        <div>Email: {user.email}</div>
-        <button onClick={(e)=>this.createOrder(user.user_id)}>Create an Order</button></div>})
+        <div><h3>Username:</h3> {user.username}</div>
+        <div><h3>Customer Name:</h3> {user.first_name} {user.last_name}</div>
+        <div><h3>Contact:</h3> {user.phone}</div>
+        <div><h3>Email:</h3> {user.email}</div>
+        <button className='createOrder' onClick={(e)=>this.createOrder(user.user_id)}>Create an Order</button></div>})
 
     return (
-        <div>{displayUsers}</div>
-
+        <>
+        <div className='menuTitle'></div>
+        <img className='home' src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Dolsot-bibimbap.jpg/1200px-Dolsot-bibimbap.jpg'/>
+        {this.props.admin && <div className='displayUsers'>{displayUsers}</div>}
+        </>
     )
         
     }
