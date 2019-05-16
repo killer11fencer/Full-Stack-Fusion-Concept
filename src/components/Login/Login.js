@@ -38,19 +38,20 @@ class Login extends Component {
     render() {
 
         return (
-            <div className='loginScreen'>
+            <>
                 <img className='background' src='https://raster-static.postmates.com/?url=com.postmates.img.prod.s3.amazonaws.com/c04cf4c5-76d7-4007-a5c4-25dcf9328cdf/orig.jpg&quality=90&w=1500&h=900&mode=crop&format=jpg&v=4' />
                 <div className='menuTitle'></div>
+                <div className='MenuText'><h1>LOGIN</h1></div>
                 <div className='Login'>
-                    <div className='title'>LOGIN</div>
-                    <div className='inputNames'>Username</div>
+                
+                    <div className='inputNames'><h2>Username</h2></div>
                     <input name='loginUsername' placeholder='Username' value={this.state.loginUsername} onChange={this.handleChange} />
-                    <div className='inputNames'>Password</div>
+                    <div className='inputNames'><h2>Password</h2></div>
                     <input name='loginPassword' placeholder='Password' value={this.state.loginPassword} onChange={this.handleChange} />
-                    <button className='button' onClick={this.handleSubmit}>Login</button>
-                    <Link to='/'><button className='button' >Cancel</button></Link>
-                    <div>Not a member? <Link to='/register'>Register Here</Link></div>
-                    {this.state.loginError && <h3>{this.state.loginErrorMessage}</h3>}
+                    <button className='homeLogin' onClick={this.handleSubmit}>Login</button>
+                    <Link to='/'><button className='homeCancel' >Cancel</button></Link>
+                    <div className='notMember'>Not a member? <Link to='/register'>Register Here</Link></div>
+                    {this.state.loginError && <h3 className='loginError'>{this.state.loginErrorMessage}</h3>}
                 </div>
 
                 <div className='address'>
@@ -59,7 +60,7 @@ class Login extends Component {
                     <div>Phone: 805 611 91121</div>
                 </div>
 
-            </div>
+            </>
         )
     }
 }
