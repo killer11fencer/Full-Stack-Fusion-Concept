@@ -18,7 +18,40 @@
     justify-content: space-between;
     align-content: center;
 }
+.cancel {
+    position: relative;
+    bottom: -65vh;
+    right: -70vw;
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 
+}
+.submit {
+    position: relative;
+    bottom: -65vh;
+    right: -69vw;
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.total {
+    position: relative;
+    bottom: -62vh;
+    right: -69vw;
+
+}
 // .modal {
 //     font-size: 12px;
 //    }

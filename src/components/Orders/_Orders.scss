@@ -1,0 +1,42 @@
+.orders {
+    position: relative;
+  
+    top: 10vh;
+    left: 25%;
+    height:65vh;
+    width: 60vw;
+    overflow: scroll;
+    
+    
+}
+
+.orderDetails {
+   
+    display: flex;
+    justify-content: space-between;
+    height: 20vh;
+    width: 20vw;
+    display: flex;
+    a{ color:black;
+        text-decoration: none;}
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.updateButton {
+   position: relative;
+    top: 5vh;
+    display: flex;
+    height: 40px;
+    background-color: green;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+}

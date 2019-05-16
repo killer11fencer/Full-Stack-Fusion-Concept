@@ -31,6 +31,7 @@ class OrderDetails extends Component {
             </div>})
         return (
             <div>
+                <img className='home' src='https://thepioneerwoman.com/wp-content/uploads/2018/09/5-easy-korean-side-dishes-banchan-ebb098ecb0ac-33.jpg'/>
             <div>Order Details:{displayOrderDetails}</div>
             <div>Total:{orderTotal}</div>
             <Link to='/orders'><button>Back</button></Link>

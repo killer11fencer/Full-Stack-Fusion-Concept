@@ -43,14 +43,14 @@ class Orders extends Component {
     render() {
         console.log(this.state.orders)
         let displayOrders = this.state.orders.map((elem, i) => {
-            return <div key={i} ><Link to={`/orders/${elem.id}`}><div >Order:{elem.id}</div>
+            return <div className='orderDetails'key={i} ><Link to={`/orders/${elem.id}`}><div >Order: {elem.id}</div>
                 
-                {this.props.admin && <div><div>Customer: {elem.first_name} {elem.last_name}</div>
+                {this.props.admin && <div className='adminOrderDetails'><div>Customer: {elem.first_name} {elem.last_name}</div>
                     <div>User ID: {elem.users_id}</div>
                     <div>Contact {elem.phone}</div></div>}
-                <div>Status:{elem.status}</div>
-                <div>Date Created:{elem.created_at}</div>
-                <div>Notes:{elem.notes}</div> </Link> {this.props.admin && <Popup className='modal' trigger={<button>Update</button>} position='right'>
+                <div>Status: {elem.status}</div>
+                <div>Date Created: {elem.created_at}</div>
+                <div>Notes: {elem.notes}</div> </Link> {this.props.admin && <Popup className='modal' trigger={<button className='updateButton'>Update</button>} position='right'>
                     <div>Update Status:</div>
                     <input defaultValue={elem.status} name='status' onChange={this.handleChange} />
                     <div>Add Notes:</div>
@@ -62,8 +62,16 @@ class Orders extends Component {
         })
         return (
             <div>
-                <h4>Order History</h4>
-                {displayOrders}</div>
+                <img className='home' src='https://thepioneerwoman.com/wp-content/uploads/2018/09/5-easy-korean-side-dishes-banchan-ebb098ecb0ac-33.jpg'/>
+                <div className='menuTitle'></div>
+                <div className='MenuText'><h1>Order History</h1></div>
+                <div className='orders'>{displayOrders}</div>
+                <div className='address'>
+                    <div>Fusion Asian</div>
+                    <div>Address: 1469 Center st, <br /> Provo,UT 84660</div>
+                    <div>Phone: 805 611 91121</div>
+                </div>
+                </div>
         )
     }
 }

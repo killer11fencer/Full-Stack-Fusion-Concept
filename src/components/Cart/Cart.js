@@ -73,14 +73,14 @@ class Cart extends Component {
             <div className='MenuText'><h1>Cart</h1></div>
             <div className='cartDisplay'>{displayCart}</div>
             <img className='home' src='https://thepioneerwoman.com/wp-content/uploads/2018/09/5-easy-korean-side-dishes-banchan-ebb098ecb0ac-33.jpg'/>
-                <div>Total: ${this.state.total}</div>
+                <div className='total'>Total: ${this.state.total}</div>
                 {this.props.admin && this.props.user && <button onClick={(e)=>this.createAdminOrder()}>Submit Order</button>}
-                {!this.props.admin && <Popup className='modal' trigger={<button>Submit</button>} position='right'>
+                {!this.props.admin && <Popup className='modal' trigger={<button className='submit'>Submit</button>} position='right'>
                 <Elements>
                 <CheckOutForm cart={this.state.cart} createOrder={this.createOrder} total={this.state.total}/>
                 </Elements>
                 </Popup>}
-                <Link to='/menu'><button>Cancel</button></Link>
+                <Link to='/menu'><button className='cancel'>Cancel</button></Link>
                 <div className='address'>
                     <div>Fusion Asian</div>
                     <div>Address: 1469 Center st, <br /> Provo,UT 84660</div>
