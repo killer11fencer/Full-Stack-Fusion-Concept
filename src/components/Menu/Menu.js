@@ -72,7 +72,7 @@ class Menu extends Component {
         }
         )
         return (
-            <div>
+            <>
                 <img className='home' src='https://i.kinja-img.com/gawker-media/image/upload/s--djYdkXK4--/c_scale,f_auto,fl_progressive,q_80,w_1600/be9vyovcn2gqwod7kd16.jpg' />
                 {this.props.admin && !this.props.user && <Link to='/addnew'>Add Dish</Link>}
                 {this.props.admin && this.props.user && <button onClick={this.cancelOrder}>Cancel Order</button>}
@@ -90,7 +90,7 @@ class Menu extends Component {
                     <div>Address: 1469 Center st, <br /> Provo,UT 84660</div>
                     <div>Phone: 805 611 91121</div>
                 </div>
-            </div>
+            </>
         )
     }
 }

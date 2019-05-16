@@ -1,6 +1,6 @@
 .postImage {
-    height: 600px;
-    width:600px;
+    height: 550px;
+    width:55%;
     object-fit: cover;
     overflow:hidden;
     float: left;
@@ -15,38 +15,60 @@
   display: flex;
   flex-direction: column;
 }
-.white {
-  background-color: white;
-  position: absolute;
-  top: 18%;
-  left: 15%;
-  height: 820px;
-  width: 1100px;
-  opacity: .8;
-}
+
 .slider {
-    position: absolute;
-    top: 22%;
-    left: -14%;
-    width: 1000px;
-    .Posts {
-      position: relative;
-        left: 60%;
-      .slick-prev, .slick-next {
-        position: absolute;
-        top: 55%
-      }
-      .slick-prev {
-        
-        left: -1%;
-        z-index: 1;
-      }
-      .slick-next {
-        right: -2%;
-        z-index: 1;
-      }
+  position: relative;
+  left: 5%;
+  top: 7vh;
+  width:55%;
+  .Posts {
+    position: relative;
+      left: 25%;
+    .slick-prev, .slick-next {
+      position: absolute;
+      top: 45%
     }
+    .slick-prev {
+      
+      left: -3%;
+      z-index: 1;
+    }
+    .slick-next {
+      right: -19%;
+      z-index: 1;
+      color: black;
+      .MenuSlider {
+        position: relative;
+        left: 3%;
+        width:40%;
+        .Menu {
+          position: relative;
+            left: 30%;
+          .slick-prev, .slick-next {
+            position: absolute;
+            top: 55%
+          }
+          .slick-prev {
+            
+            left: 10%;
+            z-index: 1;
+          }
+          .slick-next {
+            right: -70%;
+            z-index: 1;
+            color: black;
+          }
+        }
+    }
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+    }
+  }
 }
+
+
 
 .home {
   position: fixed;
@@ -65,15 +87,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
+  
     width: 100%;
     font-size: 12px;
 }
 
 .adminUpdate {
   position: relative;
-  top:400px;
-  left: 55%;
+  top: -30vh;
+  left: 57%;
   background-color: white;
   height: 300px;
   width: 220px;
@@ -103,4 +125,19 @@
   top: 10px;
   left: 29%;
   width: 90px;
+}
+
+.postButton {
+  position: relative;
+    top: 3vh;
+    left: 24%;
+    display: flex;
+    height: 40px;
+    background-color: red;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }

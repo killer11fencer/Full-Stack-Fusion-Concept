@@ -40,6 +40,7 @@ class Login extends Component {
         return (
             <div className='loginScreen'>
                 <img className='background' src='https://raster-static.postmates.com/?url=com.postmates.img.prod.s3.amazonaws.com/c04cf4c5-76d7-4007-a5c4-25dcf9328cdf/orig.jpg&quality=90&w=1500&h=900&mode=crop&format=jpg&v=4' />
+                <div className='menuTitle'></div>
                 <div className='Login'>
                     <div className='title'>LOGIN</div>
                     <div className='inputNames'>Username</div>

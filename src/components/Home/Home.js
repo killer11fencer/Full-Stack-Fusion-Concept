@@ -50,21 +50,22 @@ class Home extends Component {
 
 
         const posts = this.state.posts.map((post, id) => {
-            return <div key={id}>
+            return <div className='dishes' key={id}>
                 <h1>{post.title}</h1>
                 <div className='content'>
                 <img className='postImage' src={post.img} alt={post.title} />
                 <div className='text'>
                 <h5 className='description'>{post.description}</h5>
-                <Link to={post.path}>{post.button}</Link>
+                <Link to={post.path}><button className='postButton'>{post.button}</button></Link>
                 </div>
                 </div>
             </div>
         })
         return (
             <>
+                <div className='menuTitle'></div>
                 <img alt='cooking background' className='home' src='https://www.rosewoodhotels.com/conversations/conversations/wp-content/uploads/2017/04/GettyImages-621141664.jpg' />
-                <div className='white'></div> 
+                
                 <div className='slider'>
                     <Slider {...settings}>
                         {posts}
