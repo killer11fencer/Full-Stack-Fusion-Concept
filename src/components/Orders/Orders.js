@@ -43,7 +43,7 @@ class Orders extends Component {
     render() {
         console.log(this.state.orders)
         let displayOrders = this.state.orders.map((elem, i) => {
-            return <div className='orderDetails'key={i} ><Link to={`/orders/${elem.id}`}><div >Order: {elem.id}</div>
+            return <div className='orderDetails'key={i} ><Link to={`/orders/${elem.id}`}><div ><h2>Order: {elem.id}</h2></div>
                 
                 {this.props.admin && <div className='adminOrderDetails'><div>Customer: {elem.first_name} {elem.last_name}</div>
                     <div>User ID: {elem.users_id}</div>
