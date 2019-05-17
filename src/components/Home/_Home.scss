@@ -157,6 +157,29 @@
   position: relative;
   min-height: 100vh;
 }
+.ResponseView {
+  display: none;
+}
+@media (max-width:593px) {
+  .content {
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+  }
+  .ResponseView {
+    display: flex;
+    flex-direction: column;
+  }
+  .postImage {
+    position: relative;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+  }
+  .slider {
+    display: none;
+  }
+}
 @media (max-width:1040px) {
   .home {position: relative;}
   .menuTitle {display: none;}
@@ -164,11 +187,13 @@
     bottom:0;
     ;
    }
-  .postImage {height: 50%;}
+   
+  .postImage {height: 30%;}
   .slider {
       position: relative;
       left: 5%;
       top: 5vh;
+     
       width:55%;
       .Posts {
         position: relative;
@@ -178,12 +203,10 @@
           top: 40%;
         }
         .slick-prev {
-            
-          left: -5%;
-        
+          left: -27%;
         }
         .slick-next {
-          right: 0;
+          right: -40%;
         
         }
       }

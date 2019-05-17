@@ -47,11 +47,9 @@ class Home extends Component {
             className: 'Posts'
         }
 
-
-
         const posts = this.state.posts.map((post, id) => {
             return <div className='dishes' key={id}>
-                <h1>{post.title}</h1>
+                <h1 >{post.title}</h1>
                 <div className='content'>
                 <img className='postImage' src={post.img} alt={post.title} />
                 <div className='text'>
@@ -61,11 +59,20 @@ class Home extends Component {
                 </div>
             </div>
         })
+
+        
         return (
             <>
                 <div className='menuTitle'></div>
                 <img alt='cooking background' className='home' src='https://www.rosewoodhotels.com/conversations/conversations/wp-content/uploads/2017/04/GettyImages-621141664.jpg' />
-                
+                <div className='ResponseView'><h1 className='contentTitle' >{this.state.posts[0].title}</h1>
+                <div className='content'>
+                <img className='postImage' src={this.state.posts[0].img} alt={this.state.posts[0].title} />
+                <div className='text'>
+                <h5 className='description'>{this.state.posts[0].description}</h5>
+                <Link to={this.state.posts[0].path}><button className='postButton'>{this.state.posts[0].button}</button></Link>
+                </div>
+                </div></div>
                 <div className='slider'>
                     <Slider {...settings}>
                         {posts}
