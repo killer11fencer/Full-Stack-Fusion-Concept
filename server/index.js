@@ -7,8 +7,8 @@ const cartCtrl = require('./controller/cartCtrl')
 const orderCtrl = require('./controller/orderCtrl')
 const dishCtrl = require('./controller/dishCtrl')
 const userCtrl = require('./controller/usersCtrl')
-
-const {CONNECTION_STRING,SERVER_PORT,SESSION_SECRET,STRIPE_API} = process.env
+const {CONNECTION_STRING,SERVER_PORT,SESSION_SECRET,STRIPE_API,ACCOUNT_SID,AUTH_TOKEN} = process.env
+const client = require('twilio')(ACCOUNT_SID,AUTH_TOKEN)
 const stripe = require('stripe')(STRIPE_API);
 const app = express()
 
@@ -92,4 +92,14 @@ app.post('/api/admin',cartCtrl.createAdminOrder)
 // Get Orders for admin
 app.get('/api/admin/orders',orderCtrl.getAllOrdersAdmin)
 app.put('/api/admin/orders/:id',orderCtrl.updateOrderAdmin)
+// Send SMS
+app.post('/api/admin/complete',(req,res) => {
+    const {phone,name} = req.body
+    client.messages
+    .create({ 
+    body: `Hello ${name} , your order is ready for pick up at Fusion Asian `,
+    from: '18058745931',
+    to: `1${phone}`
+    }).then(message => console.log(message.sid))
 
+})

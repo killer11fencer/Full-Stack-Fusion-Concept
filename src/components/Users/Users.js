@@ -27,7 +27,7 @@ class Users extends Component {
     render() {
 
         let displayUsers = this.state.users.map((user,i)=>
-        { return <div key={i}>
+        { return <div className='users' key={i}>
         <div><h3>Username:</h3> {user.username}</div>
         <div><h3>Customer Name:</h3> {user.first_name} {user.last_name}</div>
         <div><h3>Contact:</h3> {user.phone}</div>

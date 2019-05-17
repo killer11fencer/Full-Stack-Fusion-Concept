@@ -35,11 +35,23 @@ class Orders extends Component {
         let { status, notes } = this.state
         await axios.put(`api/admin/orders/${id}`, { status, notes }).then(res => this.setState({ orders: res.data }))
         this.getAllOrdersAdmin()
+        
+    }
+    orderCompleted = async (id,phone,firstname,lastname) => {
+        let status = 'Completed'
+        let notes = 'Order ready for pick up'
+        let name = `${firstname} ${lastname}`
+        await axios.put(`api/admin/orders/${id}`, { status, notes }).then(res => this.setState({ orders: res.data }))
+        
+        axios.post('/api/admin/complete',{phone,name}).then(console.log('Successful')).catch(err=> console.log('err on complete', err))
+        this.getAllOrdersAdmin()
+        
     }
     
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
+
     render() {
         console.log(this.state.orders)
         let displayOrders = this.state.orders.map((elem, i) => {
@@ -56,8 +68,10 @@ class Orders extends Component {
                     <div>Add Notes:</div>
                     <input defailtValue={elem.notes} name='notes' onChange={this.handleChange} />
                     <button onClick={(e) => this.orderStatusUpdate(elem.id)}>Submit</button>
-                </Popup>}
-               
+                </Popup>
+
+            }
+               {this.props.admin && <button className='CompletedButton'onClick={(e)=>this.orderCompleted(elem.users_id,elem.phone,elem.first_name,elem.last_name)}>Order Completed</button>}
                 </div>
         })
         return (

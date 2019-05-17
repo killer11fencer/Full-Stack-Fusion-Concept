@@ -3,12 +3,13 @@
     top: 20%;
     left: 20%;
     justify-content: space-evenly;
-    min-width:60%;
+    width:60%;
     line-height: .5em;
-    height: 80%;
+    height: 70%;
     display: flex;
-    flex-wrap: row wrap;
-    flex: 1 1 100px;
+    flex-wrap: wrap;
+    overflow: scroll;
+   
 }
 
 
@@ -24,4 +25,9 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+.users {
+    margin-top: 3em;
+    width: 250px;
 }
