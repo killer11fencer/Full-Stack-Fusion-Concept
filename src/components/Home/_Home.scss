@@ -1,3 +1,5 @@
+#root{height: auto;}
+
 .postImage {
     height: 550px;
     width:55%;
@@ -151,3 +153,39 @@
     display: inline-block;
     font-size: 16px;
 }
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+@media (max-width:1040px) {
+  .home {position: relative;}
+  .menuTitle {display: none;}
+  .address {position: absolute;
+    bottom:0;
+    ;
+   }
+  .postImage {height: 50%;}
+  .slider {
+      position: relative;
+      left: 5%;
+      top: 5vh;
+      width:55%;
+      .Posts {
+        position: relative;
+          left: 25%;
+        .slick-prev, .slick-next {
+          position: absolute;
+          top: 40%;
+        }
+        .slick-prev {
+            
+          left: -5%;
+        
+        }
+        .slick-next {
+          right: 0;
+        
+        }
+      }
+    }
+  }

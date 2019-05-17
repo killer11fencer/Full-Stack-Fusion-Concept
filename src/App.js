@@ -10,11 +10,11 @@ function App() {
   return (
     <HashRouter>
       <Provider store={store}>
-      
+      <div className='App'>
     <Navbar/>
   
     {router}
-    
+    </div>
     </Provider>
     </HashRouter>
   );
