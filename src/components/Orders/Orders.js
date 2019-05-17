@@ -41,7 +41,8 @@ class Orders extends Component {
         let status = 'Completed'
         let notes = 'Order ready for pick up'
         let name = `${firstname} ${lastname}`
-        await axios.put(`api/admin/orders/${id}`, { status, notes }).then(res => this.setState({ orders: res.data }))
+
+        await axios.put(`api/admin/orders/${id}`, { status, notes }).then(res => console.log(res.data)).catch(err=> console.log('err on complete order',err))
         
         axios.post('/api/admin/complete',{phone,name}).then(console.log('Successful')).catch(err=> console.log('err on complete', err))
         this.getAllOrdersAdmin()
@@ -71,7 +72,7 @@ class Orders extends Component {
                 </Popup>
 
             }
-               {this.props.admin && <button className='CompletedButton'onClick={(e)=>this.orderCompleted(elem.users_id,elem.phone,elem.first_name,elem.last_name)}>Order Completed</button>}
+               {this.props.admin && <button className='CompletedButton'onClick={(e)=>this.orderCompleted(elem.id,elem.phone,elem.first_name,elem.last_name)}>Order Completed</button>}
                 </div>
         })
         return (
