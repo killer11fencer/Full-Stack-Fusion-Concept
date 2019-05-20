@@ -23,7 +23,7 @@ class Navbar extends Component {
             <div className='navbar'>
             <img  className='logo' alt='logo'src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Taegeuk.svg/220px-Taegeuk.svg.png'/>
             <h1 className='company'>Fusion Asian</h1>
-            <Link to={'/navigation'}><i class="fas fa-bars menu"></i></Link>
+            <Link to={'/navigation'}><i className="fas fa-bars menu"></i></Link>
             <div className='nav'>
                <Link to='/'> <div className='navButtons'>Home</div></Link>
                <Link to='/about'><div className='navButtons'>About</div></Link>
