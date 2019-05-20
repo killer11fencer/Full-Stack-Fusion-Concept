@@ -4,7 +4,7 @@ class About extends Component {
     render () {
         return (
             <div className='AboutContainer'>
-            <img className='home' src='https://3.bp.blogspot.com/-BFiKOGPTDq0/V4O56KIPqbI/AAAAAAAAMXc/p0_u66g6pzcXb744p3co7cZPO-l14PPRgCKgB/s1600/2.jpg'/>
+            <img alt='store' className='home' src='https://3.bp.blogspot.com/-BFiKOGPTDq0/V4O56KIPqbI/AAAAAAAAMXc/p0_u66g6pzcXb744p3co7cZPO-l14PPRgCKgB/s1600/2.jpg'/>
             <div className='aboutContent'>
             <div className='about'>
             <h2>Store Hours</h2>

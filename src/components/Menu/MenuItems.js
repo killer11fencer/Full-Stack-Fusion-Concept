@@ -56,7 +56,7 @@ class MenuItem extends Component {
         let dish = this.state.dish.map((elem, id) => {
 
             return <div key={id}>
-             <img className='home' src='https://i.kinja-img.com/gawker-media/image/upload/s--djYdkXK4--/c_scale,f_auto,fl_progressive,q_80,w_1600/be9vyovcn2gqwod7kd16.jpg' />
+             <img alt='food' className='home' src='https://i.kinja-img.com/gawker-media/image/upload/s--djYdkXK4--/c_scale,f_auto,fl_progressive,q_80,w_1600/be9vyovcn2gqwod7kd16.jpg' />
              <div className='menuTitle'></div>
                 <h1 className='MenuText'>{elem.name}</h1>
                 <div className='MenuCategory'>

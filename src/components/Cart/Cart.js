@@ -72,7 +72,7 @@ class Cart extends Component {
             <div className='menuTitle'></div>
             <div className='MenuText'><h1>Cart</h1></div>
             <div className='cartDisplay'>{displayCart}</div>
-            <img className='home' src='https://thepioneerwoman.com/wp-content/uploads/2018/09/5-easy-korean-side-dishes-banchan-ebb098ecb0ac-33.jpg'/>
+            <img alt='food'className='home' src='https://thepioneerwoman.com/wp-content/uploads/2018/09/5-easy-korean-side-dishes-banchan-ebb098ecb0ac-33.jpg'/>
                 <div className='total'><h2>Total: ${this.state.total}</h2></div>
                 {this.props.admin && this.props.user && <button  className= 'submit' onClick={(e)=>this.createAdminOrder()}>Submit Order</button>}
                 {!this.props.admin && <Popup className='modal' trigger={<button className='submit'>Submit</button>} position='right'>

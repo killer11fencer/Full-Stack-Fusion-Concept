@@ -58,6 +58,7 @@ class Menu extends Component {
                     {this.props.admin && !this.props.user && <button className='deleteDish' onClick={(e) => this.deleteDish(elem.dish_id)}>Delete</button>}
                     {this.props.user && <button className='addCartButton' onClick={(e) => this.addToCart(elem)}>Add To Cart</button>}</div>
             }
+            return console.log('loading')
         }
         )
         let Entree = this.state.dishes.map((elem, id) => {
@@ -69,11 +70,12 @@ class Menu extends Component {
                 </Link>{this.props.admin && !this.props.user && <button className='deleteDish' onClick={(e) => this.deleteDish(elem.dish_id)}>Delete</button>}
                     {this.props.user && <button className='addCartButton' onClick={(e) => this.addToCart(elem)}>Add To Cart</button>}</div>
             }
+            return console.log('loading')
         }
         )
         return (
             <>
-                <img className='home' src='https://i.kinja-img.com/gawker-media/image/upload/s--djYdkXK4--/c_scale,f_auto,fl_progressive,q_80,w_1600/be9vyovcn2gqwod7kd16.jpg' />
+                <img alt='food' className='home' src='https://i.kinja-img.com/gawker-media/image/upload/s--djYdkXK4--/c_scale,f_auto,fl_progressive,q_80,w_1600/be9vyovcn2gqwod7kd16.jpg' />
                 {this.props.admin && !this.props.user && <Link to='/addnew'><button className='addNewDish'>Add Dish</button></Link>}
                 {this.props.admin && this.props.user && <button onClick={this.cancelOrder}>Cancel Order</button>}
                 <div className='menuTitle'></div>

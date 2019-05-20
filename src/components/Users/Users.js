@@ -37,7 +37,7 @@ class Users extends Component {
     return (
         <>
         <div className='menuTitle'></div>
-        <img className='home' src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Dolsot-bibimbap.jpg/1200px-Dolsot-bibimbap.jpg'/>
+        <img alt='user background'className='home' src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Dolsot-bibimbap.jpg/1200px-Dolsot-bibimbap.jpg'/>
         {this.props.admin && <div className='displayUsers'>{displayUsers}</div>}
         </>
     )

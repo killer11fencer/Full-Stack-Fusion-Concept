@@ -42,7 +42,7 @@ render() {
     return(
         <div className='register'>
         <div className='menuTitle'></div>
-        <img className='home' src='https://images-na.ssl-images-amazon.com/images/I/91LrWm3FsML.jpg'/>
+        <img alt='register background'className='home' src='https://images-na.ssl-images-amazon.com/images/I/91LrWm3FsML.jpg'/>
         <div className='MenuText'><h1>Register</h1></div>
         <div className="form">
         <h2>Username</h2>

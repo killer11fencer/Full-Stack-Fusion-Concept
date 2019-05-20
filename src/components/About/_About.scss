@@ -2,7 +2,7 @@
 .aboutContent {
     position: relative;
     top: 300px;
-    left: 19%;
+    left: 24%;
     width: 60%;
     height: 300px;
     background-color: white;
@@ -33,5 +33,12 @@
 @media (max-width: 670px) {
     .aboutContent {
         flex-direction: column;
+    }
+}
+@media (max-width:375px) {
+    .aboutContent {
+        top:0;
+        height: 667px;
+
     }
 }
