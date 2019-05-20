@@ -1,6 +1,9 @@
 .menuImg {
     width:200px;
 }
+.MenuDiv {
+  width: 100vw;
+}
 .addNewDish {
  background-color: green;
  color: white;
@@ -172,9 +175,14 @@ font-size: 16px;
 
 @media (max-width: 1040px) {
   .MenuText {
-    top: 20%;
-    left: 35%;
+    position: absolute;
+    top: -2em;
+    left: 1em;
   }
+  .MenuDiv {
+    position: absolute;
+    top: 8em;
+  
   .MenuSlider {
     width:50%;
     top: -5em;
@@ -192,4 +200,44 @@ font-size: 16px;
    
     }
 }
+}
+@media (max-width: 691px) {
+  .addNewDish { 
+    top:0;
+    left: 8em;
+  }
+  .MenuDiv {
+    position: absolute;
+    top: 8em;
+  }
+.categoryName {
+  width: 100vw;
+  font-size: 24px;
+}
+  .menuImg {
+    width: 39vw;
+}
+
+  .MenuSlider {
+    width: 100vw;;
+    top: -9em;
+    .Menu {
+      position: relative;
+        left: 9%;
+      .slick-prev, .slick-next {
+        position: absolute;
+        top: 55%
+      }
+      .slick-prev {
+        left: 0%;
+       
+      }
+      .slick-next {
+        right: -65%;
+      }
+   
+    }
+}
+
+  }
 }

@@ -76,10 +76,10 @@ class Orders extends Component {
                 </div>
         })
         return (
-            <div>
+            <div className='MenuDiv'>
                 <img alt='background'className='home' src='https://thepioneerwoman.com/wp-content/uploads/2018/09/5-easy-korean-side-dishes-banchan-ebb098ecb0ac-33.jpg'/>
                 <div className='menuTitle'></div>
-                <div className='MenuText'><h1>Order History</h1></div>
+                <h1 className='MenuText'>Order History</h1>
                 <div className='orders'>{displayOrders}</div>
                 <div className='address'>
                     <div>Fusion Asian</div>

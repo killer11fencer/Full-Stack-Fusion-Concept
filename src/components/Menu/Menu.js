@@ -74,7 +74,7 @@ class Menu extends Component {
         }
         )
         return (
-            <>
+            <div className='MenuDiv'>
                 <img alt='food' className='home' src='https://i.kinja-img.com/gawker-media/image/upload/s--djYdkXK4--/c_scale,f_auto,fl_progressive,q_80,w_1600/be9vyovcn2gqwod7kd16.jpg' />
                 {this.props.admin && !this.props.user && <Link to='/addnew'><button className='addNewDish'>Add Dish</button></Link>}
                 {this.props.admin && this.props.user && <button onClick={this.cancelOrder}>Cancel Order</button>}
@@ -82,8 +82,8 @@ class Menu extends Component {
                 <h1 className='MenuText'>Menu</h1>
                 <div className='MenuSlider'>
                     <Slider {...settings}>
-                        <div className='category'><h1>Appetizers:</h1>{appetizers}</div>
-                        <div className='category'><h1>Entree:</h1> {Entree}</div>
+                        <div className='category'><h1 className='categoryName'>Appetizers:</h1>{appetizers}</div>
+                        <div className='category'><h1 className='categoryName'>Entree:</h1> {Entree}</div>
                     </Slider>
                 </div>
 
@@ -92,7 +92,7 @@ class Menu extends Component {
                     <div>Address: 1469 Center st, <br /> Provo,UT 84660</div>
                     <div>Phone: 805 611 91121</div>
                 </div>
-            </>
+                </div>
         )
     }
 }

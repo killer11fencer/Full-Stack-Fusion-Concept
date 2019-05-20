@@ -161,6 +161,11 @@
   display: none;
 }
 @media (max-width:593px) {
+  .updateButton {
+    position: absolute;
+    top: 19em;
+    z-index: 1;
+  }
   .adminUpdate {
     margin-top: -350px;
     

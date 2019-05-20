@@ -40,10 +40,10 @@ cancelAction = (e) => {
 render() {
     console.log('register',this.state.admin)
     return(
-        <div className='register'>
+        <div className='MenuDiv'>
         <div className='menuTitle'></div>
         <img alt='register background'className='home' src='https://images-na.ssl-images-amazon.com/images/I/91LrWm3FsML.jpg'/>
-        <div className='MenuText'><h1>Register</h1></div>
+        <h1 className='MenuText' >Register</h1>
         <div className="form">
         <h2>Username</h2>
         <input name='username' placeholder='Username' value={this.state.username} onChange={this.handleChange}/>

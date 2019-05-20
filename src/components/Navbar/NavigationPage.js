@@ -30,7 +30,7 @@ class NavigationPage extends Component {
                 <Link to='/cart'><div className='Buttons'>Cart</div></Link>
                 <Link to='/orders'><div className='Buttons'>Orders</div></Link>
                 {!this.props.authenticated && <Link to='/login'><div className='Buttons'>Login</div></Link>}
-                {this.props.authenticated && <Link to='/'><div onClick={this.logOut}>Log Out</div></Link>}
+                {this.props.authenticated && <Link to='/'><div className='Buttons' onClick={this.logOut}>Log Out</div></Link>}
                 <Link to='/register'><div className='Buttons'>Register</div></Link>
                 
                 </div>
