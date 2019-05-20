@@ -74,7 +74,7 @@ class Menu extends Component {
         return (
             <>
                 <img className='home' src='https://i.kinja-img.com/gawker-media/image/upload/s--djYdkXK4--/c_scale,f_auto,fl_progressive,q_80,w_1600/be9vyovcn2gqwod7kd16.jpg' />
-                {this.props.admin && !this.props.user && <Link to='/addnew'>Add Dish</Link>}
+                {this.props.admin && !this.props.user && <Link to='/addnew'><button className='addNewDish'>Add Dish</button></Link>}
                 {this.props.admin && this.props.user && <button onClick={this.cancelOrder}>Cancel Order</button>}
                 <div className='menuTitle'></div>
                 <h1 className='MenuText'>Menu</h1>
