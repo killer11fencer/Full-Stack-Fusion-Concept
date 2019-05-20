@@ -11,7 +11,10 @@ class About extends Component {
             <div>Call (801) 491–219</div>
             <div>Mon - Sat</div>      
             <div>Lunch  11am - 3pm</div>      
-            <div>Dinner 5pm – 9pm  </div>    
+            <div>Dinner 5pm – 9pm  </div> 
+            <h1>Address</h1>  
+            <div>Address: 1469 Center st, <br /> Provo,UT 84660</div> 
+            <div>Phone: 805 611 91121</div>
             </div>
             <div className='about'>
             <h1>About Fusion Asian</h1>
