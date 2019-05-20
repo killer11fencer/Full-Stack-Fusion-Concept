@@ -161,6 +161,10 @@
   display: none;
 }
 @media (max-width:593px) {
+  .adminUpdate {
+    margin-top: -350px;
+    
+  }
   .content {
     flex-direction: column;
     height: 100vh;
@@ -169,18 +173,135 @@
   .ResponseView {
     display: flex;
     flex-direction: column;
+    min-width: 320px;
+  }
+  .description {
+    position: relative;
+    top: -15em;
+    
+  }
+  .postButton {
+    position: relative;
+    top: -12em;
+    left: 32%;
   }
   .postImage {
     position: relative;
-    top: 0;
+    top: -7em;
     height: 100vh;
     width: 100%;
   }
   .slider {
     display: none;
   }
+
+}
+@media (max-width:1650px) {
+.update {
+  border-color: black;
+  border-width: .5px;
+  border-style: solid;
+}
+  .adminUpdate {
+    top: -25em;
+    left: 66%;
+  }
+  .postImage {height: 30%;}
+  .slider {
+      position: relative;
+      left: 5%;
+      top: 8em;
+     
+      width:55%;
+      .Posts {
+        position: relative;
+          left: 40%;
+        .slick-prev, .slick-next {
+          position: absolute;
+          top: 40%;
+        }
+        .slick-prev {
+          left: -10%;
+        }
+        .slick-next {
+          right: -5%;
+        
+        }
+      }
+    }
+ 
+}
+
+@media (max-width: 1467px) {
+  .adminUpdate {
+    top: -20em;
+    left: 64%;
+  }
+  .slider {
+    
+    .Posts {
+      position: relative;
+        left: 36%8;
+      .slick-prev, .slick-next {
+        position: absolute;
+        top: 40%;
+      }
+      .slick-prev {
+        left: -5%;
+      }
+      .slick-next {
+        right: -10%;
+      
+      }
+    }
+  }
+}
+@media (max-width:1303px) {
+  .adminUpdate {
+    top: -18em;
+    left: 63%;
+  }
+}
+
+@media (max-width:1239px) {
+  .adminUpdate {
+    top: -16em;
+    left: 66%;
+  }
+  .slider {
+    
+    .Posts {
+      position: relative;
+        left: 48%;
+      .slick-prev, .slick-next {
+        position: absolute;
+        top: 40%;
+      }
+      .slick-prev {
+        left: -5%;
+      }
+      .slick-next {
+        right: -10%;
+      
+      }
+    }
+  }
+}
+@media (max-width:1197px) {
+  .adminUpdate {
+    top: -10em;
+  }
 }
 @media (max-width:1040px) {
+  .update {
+    left: 25%;
+    width: 50%;
+  }
+  .adminUpdate {
+    top: 5em;
+    left: 0;
+    width: 100vw;
+  }
   .home {position: relative;}
   .menuTitle {display: none;}
   .address {position: absolute;

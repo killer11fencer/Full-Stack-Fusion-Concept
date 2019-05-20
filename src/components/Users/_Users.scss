@@ -3,9 +3,9 @@
     top: 20%;
     left: 20%;
     justify-content: space-evenly;
-    width:60%;
+    width:65%;
     line-height: .5em;
-    height: 70%;
+    height: 76%;
     display: flex;
     flex-wrap: wrap;
     overflow: scroll;
@@ -30,4 +30,51 @@
 .users {
     margin-top: 3em;
     width: 250px;
+}
+
+@media (max-width:1409px) {
+.displayUsers {
+    left: 23%;
+}
+}
+
+@media (max-width: 1242px) {
+    .displayUsers {
+        left: 28%;
+        height: 73%;
+    }
+}
+
+@media (max-width:1157px) {
+    .displayUsers {
+        left: 32%;
+        width: 64%;
+        height:65%;
+    }
+}
+@media (max-width: 1118px) {
+    .displayUsers {
+        left: 29%;
+        width:67%;
+        height: 57%;
+
+    }
+}
+@media (max-width:1040px) {
+.displayUsers {
+    top: 90vh;
+    left: 15%;
+    width: 80%;
+}
+}
+@media (max-width: 857px) {
+    .displayUsers {
+        top: 78vh;
+    }
+}
+
+@media (max-width: 742px) {
+    .displayUsers {
+        top: 70vh;
+    }
 }

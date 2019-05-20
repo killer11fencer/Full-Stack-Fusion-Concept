@@ -46,4 +46,13 @@
 @media (max-width:891px) {
     .nav {display: none;}
     .menu {display: flex;}
+    .logo {height: 2em;
+        top: 1.5em;
+        left: 1em;
+    }
+    .company {
+        font-size: 1.5em;
+        top: .5em;
+        left: 2.5em;;
+    }
 }
