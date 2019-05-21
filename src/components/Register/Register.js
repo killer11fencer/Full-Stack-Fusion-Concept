@@ -63,10 +63,10 @@ render() {
         <input name='phone' placeholder='Phone' value={this.state.phone} onChange={this.handleChange}/>
         <h2>password</h2>
         <input name='password' placeholder='password' value={this.state.password} onChange={this.handleChange}/>
-        {this.props.admin && <select name='admin' onChange={this.handleChange}>
-                    <option value={false}selected>Customer</option>
-                        <option value={true}>Admin</option>
-                        </select>}
+        {this.props.admin && <div className='custom-select' ><select name='admin' onChange={this.handleChange}>
+                    <option  value={false} selected >Customer</option>
+                        <option  value={true}>Admin</option>
+                        </select> </div>}
         <button className='registerSubmit' onClick={this.handleSubmit}>Submit</button>
         <Link to='/'><button className='registerCancel'>Cancel</button></Link>
         </div>
