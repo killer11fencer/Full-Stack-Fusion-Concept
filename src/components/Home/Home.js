@@ -108,7 +108,7 @@ class Home extends Component {
                     <input className='update' value={this.state.img} name='img' onChange={this.handleChange} />
                     <div>Link to</div>
                     <select name='path' onChange={this.handleChange}>
-                    <option  defaultValue='' >Choose a link </option>
+                    <option  value=''>Choose a link </option>
                         <option  value={'/about'}>About</option>
                         <option  value={'/menu'}>Menu</option>
                         <option  value={'/login'}>Login</option>
