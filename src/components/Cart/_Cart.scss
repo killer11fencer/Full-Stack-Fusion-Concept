@@ -9,6 +9,7 @@
     overflow: scroll;
     display: flex;
     flex-direction: column;
+    
 }
 .cartImg {
     width: 100px;
@@ -42,6 +43,10 @@
     position: absolute;
     top:76%;
     right: 25%;
+    @include bp(smallDesk) {
+        top: 34em;
+        right: 23%;
+    }
 
 }
 .cancelOrder {
