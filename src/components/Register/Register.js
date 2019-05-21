@@ -47,16 +47,15 @@ render() {
         <div className="form">
         <h2>Username</h2>
         <input name='username' placeholder='Username' value={this.state.username} onChange={this.handleChange}/>
-        
-        
-        <div className="inputs">
+        <div className='names'>
+        <div className="firstNames">
         <h2>First Name</h2>
-        <h2>Last Name</h2>
-        </div>
-        
-        <div className="names">
         <input name='first_name' placeholder='First Name' value={this.state.first_name} onChange={this.handleChange}/>
+        </div>
+        <div className='lastName'>
+        <h2>Last Name</h2>
         <input name='last_name' placeholder='Last Name' value={this.state.last_name} onChange={this.handleChange}/>
+        </div>
         </div>
         <h2>Email</h2>
         <input name='email' placeholder='Email' value={this.state.email} onChange={this.handleChange}/>

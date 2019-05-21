@@ -6,20 +6,56 @@
     left: 46%;
     top: 10vh;
     text-align: center;
+    @include bp(smallDesk) {
+        top: 7vh;
+        width: 30vw;
+        left: 39em;
+    }
+    @include bp(mobile) {
+        left: 33em;
+    }
+    @include bp(ipadPro) {
+        left: 22em;
+        top: 0;
+        height: 40em;
+    }
+    @include bp(ipad) {
+        left: 18em;
+        font-size: 15px;
+    }
+    @include bp(iphone6P) {
+        left: 0;
+        width: 100%;
+    }
 }
+ 
 .names {
-    display: flex;
     position: relative;
-    left: -100%;
-    justify-content: space-evenly;
-    width: 30vw;
-}
-.inputs {
-    position: relative;
-    left: -50%;
+    left:-5em;
     display: flex;
     justify-content: space-between;
-    width: 19vw;
+    width: 18vw;
+    @include bp(smallDesk) {
+        left: 4em;
+        width: 21em;
+    }
+    @include bp (ipadPro) {
+        left: 0;
+        top: 0;
+    }
+    @include bp (ipad) {
+        left: -3em;
+       
+    }
+    @include bp(iphone6P) {
+        left: 3.5em;
+    }
+    @include bp(iphone6) {
+        left: 2em;
+    }
+    @include bp(iphone5) {
+        left:0;
+    }
 }
 
 .registerSubmit {
