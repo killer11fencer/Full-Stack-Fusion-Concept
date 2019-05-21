@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Popup from 'reactjs-popup'
-// import {updateAuthenticated,updateAdmin} from '../../redux/reducer'
+import {updateAuthenticated,updateAdmin} from '../../redux/reducer'
 
 
 class Orders extends Component {
@@ -16,12 +16,12 @@ class Orders extends Component {
         }
     }
     async componentDidMount() {
-        // const session = await axios.get('/api/session')
-        // console.log('session data',session.data)
-        // if(session) {
-        //     this.props.updateAuthenticated(session.data.user.authenticated)
-        //     this.props.updateAdmin(session.data.user.admin)
-        // }
+        const session = await axios.get('/api/session')
+        console.log('session data',session.data)
+        if(session.data.user) {
+            this.props.updateAuthenticated(session.data.user.authenticated)
+            this.props.updateAdmin(session.data.user.admin)
+        }
         if (!this.props.admin && this.props.authenticated) { return this.getAllOrders() }
         if (this.props.admin) { return this.getAllOrdersAdmin() }
     }
@@ -90,10 +90,10 @@ class Orders extends Component {
         )
     }
 }
-// const mapDispatchToProps = {
-//  updateAuthenticated,
-//  updateAdmin
-// }
+const mapDispatchToProps = {
+ updateAuthenticated,
+ updateAdmin
+}
 function mapStateToProps(state) {
     return {
         admin: state.client.admin,
@@ -101,4 +101,4 @@ function mapStateToProps(state) {
         authenticated: state.client.authenticated
     }
 }
-export default connect(mapStateToProps)(Orders)
+export default connect(mapStateToProps,mapDispatchToProps)(Orders)

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {adminOrder_id,updateUser} from '../../redux/adminReducer'
+import {updateAuthenticated,updateAdmin} from '../../redux/reducer'
 
 
 class Users extends Component {
@@ -11,7 +12,13 @@ class Users extends Component {
             users: []
         }
     }
-    componentDidMount () {
+    async componentDidMount () {
+        const session = await axios.get('/api/session')
+        console.log('session data',session.data)
+        if(session.data.user) {
+            this.props.updateAuthenticated(session.data.user.authenticated)
+            this.props.updateAdmin(session.data.user.admin)
+        }
         this.getAllUsers()
     }
     getAllUsers = () => {
@@ -46,7 +53,10 @@ class Users extends Component {
 }
 const mapDispatchToProps = {
     adminOrder_id,
-    updateUser
+    updateUser,
+    updateAuthenticated,
+    updateAdmin
+    
 }
 function mapStateToProps (state) {
     return { admin: state.client.admin}

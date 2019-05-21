@@ -8,7 +8,6 @@ import {cancelOrder} from '../../redux/adminReducer'
 
 class Navbar extends Component {
 
-
     
     logOut = async () => {
         axios.get('/auth/logout')
@@ -45,6 +44,7 @@ class Navbar extends Component {
 const mapDispatchToProps = {
     logout,
     cancelOrder
+   
   
 }
 function mapStateToProps (state) {
