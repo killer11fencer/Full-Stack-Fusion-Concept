@@ -47,7 +47,15 @@
     left: 43%;
     width:300px;
     text-align: center;
-
+ @include bp(smallDesk) {
+    position: absolute;
+    top: -2em;
+    left: 1em;
+  
+ }
+ @include bp(iphone5) {
+   left:0;
+ }
 }
 
 .category {
@@ -175,11 +183,7 @@ font-size: 16px;
 }
 
 @media (max-width: 1040px) {
-  .MenuText {
-    position: absolute;
-    top: -2em;
-    left: 1em;
-  }
+ 
   .MenuDiv {
     position: absolute;
     top: 8em;

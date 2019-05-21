@@ -18,10 +18,28 @@
         top:-1em;
         left: 34%;
     }
-  
-    
+    @include bp(ipad) {
+        top: -3em;
+        left: 28%;
+        width: 35%;
+    }
+    @include bp(iphone6P) {
+        width: 70%;
+        height: 20%;
+        left: 1em;
+    }
+    @include bp(iphone6) {
+        left: 1em;
+    }
+    @include bp(iphone5) {
+       left: -1em;
+        
+        
+    }
     
 }
+
+
 .notMember {
     position: relative;
     top: 6em;
