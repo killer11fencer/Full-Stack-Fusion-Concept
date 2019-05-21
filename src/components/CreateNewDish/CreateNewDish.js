@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-
+import {connect} from 'react-redux'
+import {updateAuthenticated,updateAdmin} from '../../redux/reducer'
 
 class CreateNewDish extends Component {
     constructor() {
@@ -11,6 +12,14 @@ class CreateNewDish extends Component {
             img: '',
             price: null,
             category_id: null
+        }
+    }
+    async componentDidMount () {
+        const session = await axios.get('/api/session')
+        console.log('session data',session.data)
+        if(session.data.user) {
+            this.props.updateAuthenticated(session.data.user.authenticated)
+            this.props.updateAdmin(session.data.user.admin)
         }
     }
     handleChange = (e) => {
@@ -56,4 +65,8 @@ class CreateNewDish extends Component {
         )
     }
 }
-export default CreateNewDish
+const mapDispatchToProps = {
+    updateAuthenticated,
+    updateAdmin
+}
+export default connect(null,mapDispatchToProps)(CreateNewDish)
