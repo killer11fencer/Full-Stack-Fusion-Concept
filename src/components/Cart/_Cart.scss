@@ -1,3 +1,5 @@
+
+
 .cartDisplay {
     position: absolute;
     left: 25%;
@@ -19,31 +21,21 @@
     align-content: center;
 }
 .cancel {
+    @extend %button-base;
     position: relative;
     bottom: -65vh;
     right: -70vw;
-    background-color: red;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    background-color: $r;
+   
 
 }
 .submit {
+    @extend %button-base;
     position: relative;
     bottom: -65vh;
     right: -69vw;
-    background-color: blue;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    background-color:$b;
+    
 }
 
 .total {
@@ -52,36 +44,53 @@
     right: 25%;
 
 }
-// .modal {
-//     font-size: 12px;
-//    }
-//    .modal > .header {
-//     width: 100%;
-//     border-bottom: 1px solid gray;
-//     font-size: 18px;
-//     text-align: center;
-//     padding: 5px;
-//    }
-//    .modal > .content {
-//     width: 100%;
-//     padding: 10px 5px;
-//    }
-//    .modal > .actions {
-//     width: 100%;
-//     padding: 10px 5px;
-//     margin: auto;
-//     text-align: center;
-//    }
-//    .modal > .close {
-//     cursor: pointer;
-//     position: absolute;
-//     display: block;
-//     padding: 2px 5px;
-//     line-height: 20px;
-//     right: -10px;
-//     top: -10px;
-//     font-size: 24px;
-//     background: #ffffff;
-//     border-radius: 18px;
-//     border: 1px solid #cfcece;
-//    }
+.cancelOrder {
+    @extend %button-base;
+    background-color: $r;
+    position: relative;
+    top: -1.2em;
+    width: 25%;
+    left: 5em;
+    
+}
+.placeOrder {
+    @extend %button-base;
+    position: relative;
+    top: 3.1em;
+    left: -2em;
+    background-color:$b;
+   
+}
+.modal {
+    font-size: 12px;
+   }
+   .modal > .header {
+    width: 100%;
+    border-bottom: 1px solid $g;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+   }
+   .modal > .content {
+    width: 100%;
+    padding: 10px 5px;
+   }
+   .modal > .actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+   }
+   .modal > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+   }

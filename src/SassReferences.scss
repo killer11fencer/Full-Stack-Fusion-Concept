@@ -1,0 +1,49 @@
+
+
+// Button standard
+%button-base {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+//Common Colors
+$g: green;
+$r: red;
+$b: blue;
+$w: white;
+$g: gray;
+
+
+//mixins
+@mixin bp($point) {
+  
+    $bp-iphone5: "(max-width: 320px)";
+    $bp-iphone6 :"(max-width: 375px)";
+    $bp-iphone6Plus: "(max-width: 414px)";
+    $bp-ipad: "(max-width: 768px)";
+    $bp-ipadPro: "(max-width: 1024px)";
+    $bp-smallDesk: '(max-width:1312px)';
+    
+    @if $point == iphone5 {
+        @media #{$bp-iphone5} { @content;}
+    }
+    @else if $point == iphone6 {
+      @media #{$bp-iphone6} { @content; }
+    }
+    @else if $point == iphone6P {
+      @media #{$bp-iphone6Plus} { @content; }
+    }
+    @else if $point == ipad {
+      @media #{$bp-ipad}  { @content; }
+    }
+    @else if $point == ipadPro {
+        @media #{$bp-ipadPro}  { @content; }
+      }
+      @else if $point == smallDesk {
+          @media #{$bp-smallDesk} {@content;}
+      }
+  }

@@ -10,6 +10,14 @@
     width: 30%;
     display: flex;
     flex-direction: column;
+    @include bp(smallDesk) {
+        left: 38%;
+        top: 3em;
+    }
+    @include bp(ipadPro) {
+        top:-1em;
+        left: 34%;
+    }
   
     
     

@@ -38,10 +38,10 @@ class Login extends Component {
     render() {
 
         return (
-            <>
+            <div className='MenuDiv'>
                 <img alt='login background'className='home' src='https://raster-static.postmates.com/?url=com.postmates.img.prod.s3.amazonaws.com/c04cf4c5-76d7-4007-a5c4-25dcf9328cdf/orig.jpg&quality=90&w=1500&h=900&mode=crop&format=jpg&v=4' />
                 <div className='menuTitle'></div>
-                <div className='MenuText'><h1>LOGIN</h1></div>
+                <h1 className='MenuText'>LOGIN</h1>
                 <div className='Login'>
                 
                     <div className='inputNames'><h2>Username</h2></div>
@@ -60,7 +60,7 @@ class Login extends Component {
                     <div>Phone: 805 611 91121</div>
                 </div>
 
-            </>
+            </div>
         )
     }
 }
