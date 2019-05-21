@@ -2,13 +2,20 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import axios from 'axios'
-import {logout} from '../../redux/reducer'
+import {logout,updateAuthenticated,updateAdmin} from '../../redux/reducer'
 import {cancelOrder} from '../../redux/adminReducer'
 
 
 class NavigationPage extends Component {
 
-
+async componentDidMount () {
+    const session = await axios.get('/api/session')
+        console.log('session data',session.data)
+        if(session.data.user) {
+            this.props.updateAuthenticated(session.data.user.authenticated)
+            this.props.updateAdmin(session.data.user.admin)
+        }
+}
     
     logOut = async () => {
         axios.get('/auth/logout')
@@ -42,7 +49,9 @@ class NavigationPage extends Component {
 }
 const mapDispatchToProps = {
     logout,
-    cancelOrder
+    cancelOrder,
+    updateAuthenticated,
+    updateAdmin
   
 }
 function mapStateToProps (state) {

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux'
 import {withRouter,Link} from 'react-router-dom'
-import {updateUsername,updateUserId} from '../../redux/reducer'
+import {updateUsername,updateUserId,updateAuthenticated,updateAdmin} from '../../redux/reducer'
 
 class Register extends Component {
     constructor() {
@@ -17,6 +17,14 @@ class Register extends Component {
             admin: false
             
             
+        }
+    }
+    async componentDidMount () {
+        const session = await axios.get('/api/session')
+        console.log('session data',session.data)
+        if(session.data.user) {
+            this.props.updateAuthenticated(session.data.user.authenticated)
+            this.props.updateAdmin(session.data.user.admin)
         }
     }
 handleChange = (e) => {
@@ -82,7 +90,9 @@ render() {
 
 const mapDispatchToProps = {
     updateUserId,
-    updateUsername
+    updateUsername,
+    updateAuthenticated,
+    updateAdmin
 }
 function mapStateToProps (state) {
     return {admin: state.client.admin}

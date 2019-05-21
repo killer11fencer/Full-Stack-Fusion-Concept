@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import {updateAuthenticated,updateAdmin} from '../../redux/reducer'
+import {connect} from 'react-redux'
 
 
 
@@ -12,7 +14,13 @@ class OrderDetails extends Component {
            
         }
     }
-    componentDidMount() {
+    async componentDidMount() {
+        const session = await axios.get('/api/session')
+        console.log('session data',session.data)
+        if(session.data.user) {
+            this.props.updateAuthenticated(session.data.user.authenticated)
+            this.props.updateAdmin(session.data.user.admin)
+        }
         this.orderDetails()
     }
     orderDetails = async () => {
@@ -48,5 +56,9 @@ class OrderDetails extends Component {
         )
     }
 }
+const mapDispatchToProps = {
+    updateAuthenticated,
+    updateAdmin
+   }
 
-export default OrderDetails
+export default connect(null,mapDispatchToProps)(OrderDetails)

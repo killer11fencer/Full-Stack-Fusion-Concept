@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import {updateAuthenticated,updateAdmin} from '../../redux/reducer'
 
 class MenuItem extends Component {
     constructor() {
@@ -16,7 +17,13 @@ class MenuItem extends Component {
 
         }
     }
-    componentDidMount() {
+    async componentDidMount() {
+        const session = await axios.get('/api/session')
+        console.log('session data',session.data)
+        if(session.data.user) {
+            this.props.updateAuthenticated(session.data.user.authenticated)
+            this.props.updateAdmin(session.data.user.admin)
+        }
         this.showDish();
     }
 
@@ -102,6 +109,11 @@ class MenuItem extends Component {
     }
 }
 
+const mapDispatchToProps = {
+    updateAuthenticated,
+    updateAdmin
+   }
+
 function mapStateToProps(state) {
     return {
         authenticated: state.client.authenticated,
@@ -111,4 +123,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(MenuItem)
+export default connect(mapStateToProps,mapDispatchToProps)(MenuItem)
