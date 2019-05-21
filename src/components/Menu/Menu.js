@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Slider from 'react-slick'
 import { connect } from 'react-redux'
 import { cancelOrder } from '../../redux/adminReducer'
+import {updateAuthenticated,updateAdmin} from '../../redux/reducer'
 
 class Menu extends Component {
     constructor() {
@@ -13,7 +14,13 @@ class Menu extends Component {
 
         }
     }
-    componentDidMount() {
+    async componentDidMount() {
+        const session = await axios.get('/api/session')
+        console.log('session data',session.data)
+        if(session.data.user) {
+            this.props.updateAuthenticated(session.data.user.authenticated)
+            this.props.updateAdmin(session.data.user.admin)
+        }
         this.getAllDishes()
     }
     //client functions
@@ -97,7 +104,9 @@ class Menu extends Component {
     }
 }
 const mapDispatchToProps = {
-    cancelOrder
+    cancelOrder,
+    updateAuthenticated,
+    updateAdmin
 }
 function mapStateToProps(state) {
     return {

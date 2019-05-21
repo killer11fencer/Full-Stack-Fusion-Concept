@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import axios from 'axios';
+import {updateAuthenticated,updateAdmin} from '../../redux/reducer'
 
 class Home extends Component {
     constructor() {
@@ -16,7 +17,13 @@ class Home extends Component {
             button: ''
         }
     }
-    componentDidMount() {
+    async componentDidMount() {
+        const session = await axios.get('/api/session')
+        console.log('session data',session.data)
+        if(session.data.user) {
+            this.props.updateAuthenticated(session.data.user.authenticated)
+            this.props.updateAdmin(session.data.user.admin)
+        }
         this.getPosts()
     }
 
@@ -110,9 +117,13 @@ class Home extends Component {
         )
     }
 }
+const mapDispatchToProps = {
+    updateAuthenticated,
+    updateAdmin
+}
 function mapStateToProps(state) {
     return {
         admin: state.client.admin
     }
 }
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps,mapDispatchToProps)(Home)

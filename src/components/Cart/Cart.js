@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import CheckOutForm from '../CheckOutForm/CheckOutForm'
 import { cancelOrder } from '../../redux/adminReducer'
 import Popup from 'reactjs-popup'
+import {updateAuthenticated,updateAdmin} from '../../redux/reducer'
 
 
 class Cart extends Component {
@@ -17,7 +18,13 @@ class Cart extends Component {
             userInput: 0
         }
     }
-    componentDidMount() {
+    async componentDidMount() {
+        const session = await axios.get('/api/session')
+        console.log('session data',session.data)
+        if(session.data.user) {
+            this.props.updateAuthenticated(session.data.user.authenticated)
+            this.props.updateAdmin(session.data.user.admin)
+        }
         this.getCart()
 
     }
@@ -105,7 +112,9 @@ class Cart extends Component {
 
 }
 const mapDispatchToProps = {
-    cancelOrder
+    cancelOrder,
+    updateAuthenticated,
+    updateAdmin
 }
 
 function mapStateToProps(state) {

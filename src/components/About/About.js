@@ -1,6 +1,19 @@
 import React, {Component} from 'react'
+import axios from 'axios'
+import { connect } from 'react-redux'
+import {updateAuthenticated,updateAdmin} from '../../redux/reducer'
+
 
 class About extends Component {
+
+   async componentDidMount () {
+    const session = await axios.get('/api/session')
+    console.log('session data',session.data)
+    if(session.data.user) {
+        this.props.updateAuthenticated(session.data.user.authenticated)
+        this.props.updateAdmin(session.data.user.admin)
+    }
+    }
     render () {
         return (
             <div className='AboutContainer'>
@@ -30,4 +43,9 @@ class About extends Component {
         )
     }
 }
-export default About
+const mapDispatchToProps = {
+    updateAuthenticated,
+    updateAdmin
+}
+
+export default connect(null,mapDispatchToProps)(About)
