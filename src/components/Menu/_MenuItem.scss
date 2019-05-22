@@ -6,7 +6,24 @@
         width:60%;
     }
 }
+.UpdateDish {
+    background-color: white;
+    width:20%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-items: center;
+    position: relative;
+    top: 65vh;
+    left: 68vw;
+    padding: 20px;
+    
+}
+.UpdateDishButton {
+    @extend %button-base;
+    background-color: green;
 
+}
 .MenuCategory {
     position: absolute;
     top: 25%;
@@ -107,7 +124,7 @@ font-size: 16px;
     position: relative;
     left: 106%;
     width: 27%;
-    top: -18vh;
+    top: -15vh;
     @include bp(mobile) {
         left:70%;
     }

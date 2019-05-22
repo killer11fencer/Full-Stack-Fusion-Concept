@@ -74,7 +74,7 @@ class MenuItem extends Component {
                 <h4 className='itemDescription'>{elem.description}</h4>
                 <Link to='/menu'><button className='menuDetailsBack'>Back</button></Link>
                 </div>
-                {this.props.admin && <div>
+                {this.props.admin && <div className='UpdateDish'>
                     <div>Dish Name:</div>
                     <input name='dish_name' defaultValue={elem.dish_name} onChange={this.handleChange} />
                     <div>Description</div>
@@ -91,7 +91,7 @@ class MenuItem extends Component {
                         <option value="3">Stews</option>
                         <option value="4">Soup</option>
                     </select>
-                    <button onClick={(e)=>this.updateDish(elem.dish_id)}>Update</button>
+                    <button className='UpdateDishButton'onClick={(e)=>this.updateDish(elem.dish_id)}>Update</button>
   
                 </div>}
             </div>
