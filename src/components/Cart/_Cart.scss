@@ -74,7 +74,8 @@
         font-size: 20px;
     }
     @include bp(iphone6P) {
-        font-size:12px;
+        font-size:10px;
+        width: 89vw;
     }
     @include bp(iphone5) {
         padding: 5px;
