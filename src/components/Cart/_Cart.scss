@@ -9,6 +9,7 @@
     overflow: scroll;
     display: flex;
     flex-direction: column;
+    background-color: aqua;
     @include bp(smallDesk) {
         left:26%;
         width: 45em;
@@ -16,7 +17,6 @@
         height:44em;
     }
     @include bp(mobile) {
-        
         left:30%;
         width: 59%;
         
@@ -26,12 +26,15 @@
         left:22%;
     }
     @include bp(ipadPro) {
-        left:10%;
+        left:5%;
         top:54vh;
-        width: 80%;
+        width: 90%;
     }
     @include bp(ipad) {
-        height:20em;
+        height:22em;
+    }
+    @include bp(iphone6P){
+        top:39vh;
     }
     @include bp(iphone5) {
         width: 100vw;
@@ -44,14 +47,17 @@
     width: 100px;
     height: 100px;
     object-fit: cover;
-    @include bp(iphone5) {
-        width:25%;
-        height:50%;
+    @include bp(ipadPro) {
+        width:20%;
+        height:55%;
     }
 }
 .cartButtons {
     position: relative;
     top:0;
+    @include bp(ipadPro) {
+        left:55%;
+    }
     @include bp(iphone5) {
         left:25%;
     }
@@ -60,6 +66,16 @@
     display: flex;
     justify-content: space-between;
     align-content: center;
+    @include bp(ipadPro) {
+        width: 89vw;
+        font-size: 30px;
+    }
+    @include bp(ipad) {
+        font-size: 20px;
+    }
+    @include bp(iphone6P) {
+        font-size:12px;
+    }
     @include bp(iphone5) {
         padding: 5px;
         font-size: 9px;
@@ -81,6 +97,15 @@
     }
     @include bp(ipad) {
         right:-63vw;
+        top:32vh;
+    }
+    @include bp(iphone6P) {
+        right:-34vw;
+        top:40vh;
+    }
+    @include bp(iphone6) {
+        top: 44vh;
+        right:-30vw;
     }
     @include bp(iphone5) {
         right: -15vw;
@@ -105,7 +130,16 @@
         bottom: -42vh;
     }
     @include bp(ipad) {
+        top: 32vh;
         right:-60vw;
+    }
+    @include bp(iphone6P) {
+        right:-30vw;
+        top:40vh;
+    }
+    @include bp(iphone6) {
+        top: 44vh;
+        right: -27vw;
     }
     @include bp(iphone5) {
         left:3px;
@@ -132,8 +166,15 @@
         top:67em;
     }
     @include bp(ipad) {
-        top: 55.5em;
+        top: 49em;
         right: 28%;
+    }
+    @include bp(iphone6P) {
+        top: 32em;
+        right:45%;
+    }
+    @include bp(iphone6) {
+        top:31em;
     }
     @include bp(iphone5) {
         top:77vh;
