@@ -66,13 +66,15 @@ font-size: 16px;
     width:7em;
 }
 @include bp(iphone6P) {
-    top:6.6vh;
+    top:-3vh;
+    left: -2.5em;
     width:10em;
 }
 @include bp(iphone6) {
-    top:4.5vh;
-    left:-1.5em;
+    width: 8.8em;
+    left:-2.2em;
 }
+
 @include bp(iphone5) {
     width:7em;
     left: -1.2em;
@@ -138,11 +140,11 @@ font-size: 16px;
     @include bp(iphone6P) {
         width:10em;
         top:40vh;
-        left: 48vw;
+        left: -9.5vw;
     }
     @include bp(iphone6) {
-        left:44vw;
-
+        top: 44vh;
+        width:9em;
     }
     @include bp(iphone5) {
         width:7.2em;
