@@ -76,7 +76,7 @@ font-size: 16px;
 @include bp(iphone5) {
     width:7em;
     left: -1.2em;
-    top:5.6vh;
+    top:-5vh;
 }
 }
 .itemDescription {
@@ -145,8 +145,8 @@ font-size: 16px;
 
     }
     @include bp(iphone5) {
-        width:8em;
-        left:46vw;
+        width:7.2em;
+        left:-7vw;
         top:35vh;
     }
 }
