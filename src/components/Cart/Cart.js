@@ -65,10 +65,11 @@ class Cart extends Component {
             return <div className="cart" key={index}><h3>{item.dish_name}</h3>
                 <img className='cartImg' alt='food' src={item.img} />
                 <div className='options'>
-                    <div> Quantity: <input onChange={this.handleChange} name='userInput' placeholder={item.quantity} />
-                        <button onClick={(e) => this.updateCart(index, this.state.userInput)}>Update</button>
-                    </div>
+                    <div> Quantity: <input onChange={this.handleChange} name='userInput' placeholder={item.quantity} /></div>
+                    <div className="cartButtons">
+                    <button onClick={(e) => this.updateCart(index, this.state.userInput)}>Update</button>
                     <button onClick={(e) => this.deleteCart(item)}>Delete</button>
+                    </div>
                 </div>
             </div>
         })

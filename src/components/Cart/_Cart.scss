@@ -9,17 +9,62 @@
     overflow: scroll;
     display: flex;
     flex-direction: column;
+    @include bp(smallDesk) {
+        left:26%;
+        width: 45em;
+        top: 15em;
+        height:44em;
+    }
+    @include bp(mobile) {
+        
+        left:30%;
+        width: 59%;
+        
+    }
+    @include bp(responsive) {
+        top:43vh;
+        left:22%;
+    }
+    @include bp(ipadPro) {
+        left:10%;
+        top:54vh;
+        width: 80%;
+    }
+    @include bp(ipad) {
+        height:20em;
+    }
+    @include bp(iphone5) {
+        width: 100vw;
+        left:0;
+        top: 39vh;
+    }
     
 }
 .cartImg {
     width: 100px;
     height: 100px;
     object-fit: cover;
+    @include bp(iphone5) {
+        width:25%;
+        height:50%;
+    }
+}
+.cartButtons {
+    position: relative;
+    top:0;
+    @include bp(iphone5) {
+        left:25%;
+    }
 }
 .cart {
     display: flex;
     justify-content: space-between;
     align-content: center;
+    @include bp(iphone5) {
+        padding: 5px;
+        font-size: 9px;
+        width: 100vw;
+    }
 }
 .cancel {
     @extend %button-base;
@@ -27,6 +72,21 @@
     bottom: -65vh;
     right: -70vw;
     background-color: $r;
+    @include bp(responsive) {
+        top: 33vh;
+        right: -67vw;
+    }
+    @include bp(ipadPro) {
+        bottom: -42vh;
+    }
+    @include bp(ipad) {
+        right:-63vw;
+    }
+    @include bp(iphone5) {
+        right: -15vw;
+        width: 42%;
+        top:48vh;
+    }
    
 
 }
@@ -37,6 +97,20 @@
     right: -69vw;
     background-color:$b;
     
+    @include bp(responsive) {
+        top: 33vh;
+        right: -64vw;
+    }
+    @include bp(ipadPro) {
+        bottom: -42vh;
+    }
+    @include bp(ipad) {
+        right:-60vw;
+    }
+    @include bp(iphone5) {
+        left:3px;
+        top:48vh;
+    }
 }
 
 .total {
@@ -44,10 +118,27 @@
     top:76%;
     right: 25%;
     @include bp(smallDesk) {
-        top: 34em;
-        right: 23%;
+        top: 38em;
+        right: 24%;
     }
-
+    @include bp(mobile) {
+        right:22%;
+    }
+    @include bp(responsive) {
+        top: 75em;
+        right: 27%;
+    }
+    @include bp(ipadPro) {
+        top:67em;
+    }
+    @include bp(ipad) {
+        top: 55.5em;
+        right: 28%;
+    }
+    @include bp(iphone5) {
+        top:77vh;
+        right: 35%;
+    }
 }
 .cancelOrder {
     @extend %button-base;

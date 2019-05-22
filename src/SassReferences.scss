@@ -28,9 +28,13 @@ $g: gray;
     $bp-ipadPro: "(max-width: 1024px)";
     $bp-smallDesk: '(max-width:1600px)';
     $bp-mobile: '(max-width:1234px)';
+    $bp-responsive: '(max-width: 1040px)';
     
     @if $point == iphone5 {
         @media #{$bp-iphone5} { @content;}
+    }
+    @else if $point == responsive {
+      @media #{$bp-responsive} {@content;}
     }
     @else if $point == iphone6 {
       @media #{$bp-iphone6} { @content; }
