@@ -9,7 +9,7 @@
     overflow: scroll;
     display: flex;
     flex-direction: column;
-    background-color: aqua;
+    
     @include bp(smallDesk) {
         left:26%;
         width: 45em;
