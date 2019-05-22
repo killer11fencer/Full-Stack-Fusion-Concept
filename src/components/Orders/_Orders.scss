@@ -17,6 +17,7 @@
         left: 0;
     }
     
+    
 }
 
 .orderDetails {
@@ -41,6 +42,12 @@
     @include bp(iphone6P) {
         width: 100vw;;
         
+    }
+    @include bp(iphone6) {
+        width:95vw;
+    }
+    @include bp(iphone5) {
+        padding-top:20%;
     }
 }
 
@@ -88,5 +95,8 @@ body {
         top:8em;
         left: -2em;;
         width:12em;
+    }
+    @include bp(iphone5) {
+        left: .2em;
     }
   }
