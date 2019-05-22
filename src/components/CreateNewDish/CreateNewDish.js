@@ -42,7 +42,7 @@ class CreateNewDish extends Component {
     render() {
         console.log(this.state)
         return(
-            <div>
+            <div className='createDish'>
                  <div>Dish Name:</div>
                     <input name='name' placeholder='Dish Name' onChange={this.handleChange} />
                     <div>Description</div>
@@ -59,8 +59,8 @@ class CreateNewDish extends Component {
                         <option value="3">Stews</option>
                         <option value="4">Soup</option>
                     </select>
-                    <button onClick={this.addDish}>Add New Dish</button>
-                    <button onClick={this.cancelAddition}>Cancel</button>
+                    <button className='AddNewDish'onClick={this.addDish}>Add New Dish</button>
+                    <button className='CancelNewDish'onClick={this.cancelAddition}>Cancel</button>
             </div>
         )
     }
