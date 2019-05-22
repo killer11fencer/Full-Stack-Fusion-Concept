@@ -2,19 +2,42 @@
     width: 650px;
     object-fit: cover;
     overflow:hidden;
+    @include bp(mobile) {
+        width:60%;
+    }
 }
-.itemDescription {
-    width: 900px;
-}
+
 .MenuCategory {
     position: absolute;
     top: 25%;
     left: 20%;
-   
+   @include bp(smallDesk) {
+       left:23%;
+   }
+   @include bp(mobile) {
+       left: 30%;
+       width:45vw;
+   }
+   @include bp(responsive) {
+       top: 70vh;
+   }
+   @include bp(ipadPro){
+       top:45vh;
+   }
+   @include bp(iphone6P) {
+       left: 10%;
+       top:33vh;
+   }
+   @include bp(iphone5) {
+       font-size: 10px;
+   }
 }
 .menuDetailDishName {
     width: 500px;
     margin-right: 0;
+    @include bp(iphone6P) {
+        width:90vw;
+    }
 }
 .menuDetailsAdd {
 position: relative;
@@ -29,19 +52,63 @@ text-align: center;
 text-decoration: none;
 display: inline-block;
 font-size: 16px;
+@include bp(mobile) {
+    top: -1vh;
+    left: 0;
+}
+@include bp(ipadPro) {
+    height: 4em;
+}
+@include bp(ipad) {
+    padding: 0;
+    top: 0;
+    height:3em;
+    width:7em;
+}
+@include bp(iphone6P) {
+    top:6.6vh;
+    width:10em;
+}
+@include bp(iphone6) {
+    top:4.5vh;
+    left:-1.5em;
+}
+@include bp(iphone5) {
+    width:7em;
+    left: -1.2em;
+    top:5.6vh;
+}
 }
 .itemDescription {
     position: absolute;
     left: 106%;
     top: 7vh;
-    width: 80%;
+    width: 20vw;
     line-height: 2.5em; 
+    @include bp(mobile) {
+        top:40vh;
+        width: 39vw;
+        left: 50%;
+    }
+    @include bp(ipadPro) {
+        top:15vh;
+        left:70%;
+    }
 }
 .menuDetailPrice {
     position: relative;
     left: 106%;
     width: 27%;
     top: -18vh;
+    @include bp(mobile) {
+        left:70%;
+    }
+    @include bp(ipadPro) {
+        top:-9vh;
+    }
+    @include bp(ipad) {
+        top: -15vh;
+    }
 }
 .menuDetailsBack {
     position: absolute;
@@ -56,4 +123,30 @@ font-size: 16px;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    @include bp(smallDesk) {
+        top: 60vh;
+    }
+    @include bp(mobile) {
+        top:45vh;
+    }
+    @include bp(ipadPro) {
+        top:30vh;
+    }
+    @include bp(ipad) {
+        left: 35%;
+    }
+    @include bp(iphone6P) {
+        width:10em;
+        top:40vh;
+        left: 48vw;
+    }
+    @include bp(iphone6) {
+        left:44vw;
+
+    }
+    @include bp(iphone5) {
+        width:8em;
+        left:46vw;
+        top:35vh;
+    }
 }

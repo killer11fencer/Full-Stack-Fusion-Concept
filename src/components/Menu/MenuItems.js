@@ -97,7 +97,7 @@ class MenuItem extends Component {
             </div>
         })
         return (
-            <div>
+            <div className='MenuDiv'>
                 {dish}
                 <div className='address'>
                     <div>Fusion Asian</div>
