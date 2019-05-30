@@ -62,7 +62,6 @@ class Orders extends Component {
                     <div>User ID: {elem.users_id}</div>
                     <div>Contact {elem.phone}</div></div>}
                 <div>Status: {elem.status}</div>
-                <div>Date Created: {elem.created_at}</div>
                 <div>Notes: {elem.notes}</div> </Link> {this.props.admin && <Popup className='modal' trigger={<button className='ordersUpdateStatus'>Update</button>} position='right'>
                     <div>Update Status:</div>
                     <input defaultValue={elem.status} name='status' onChange={this.handleChange} />
